@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src/index.ts", "src/types/index.ts"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test-d.ts"],
+  "compilerOptions": {
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "declaration": true
+  }
+}
