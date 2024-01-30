@@ -1,2 +1,2 @@
 export { HeartBit, type HeartBitProps } from "./Components";
-export { type HeartbitCoreOptions } from "@heartbit/sdk-core";
+export { type HeartbitCoreOptions } from "@fileverse/heartbit-core";

@@ -1,4 +1,4 @@
-import type { HeartbitCoreOptions } from "@heartbit/sdk-core";
+import type { HeartbitCoreOptions } from "@fileverse/heartbit-core";
 
 export interface OnMintArgs {
   url: string;

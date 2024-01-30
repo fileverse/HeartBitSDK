@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState, useMemo, memo } from "react";
 import styles from "./index.module.scss";
 import clx from "classnames";
-import { HeartbitCore, getHashedString } from "@heartbit/sdk-core";
+import { HeartbitCore, getHashedString } from "@fileverse/heartbit-core";
 import { HeartBitProps } from "..";
 
 const NumberMap: { [key: number]: string } = {
