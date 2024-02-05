@@ -2,7 +2,7 @@
 // Two modes:
 // Signed: User pass message and signature
 // Signless: We initialize signer and take care of signing - Next
-export type SupportedChain = "sepolia" | "gnosis";
+export type SupportedChain = "0xaa36a7" | "0x2105";
 
 export type ChainConfig = {
   chainId: number;
@@ -11,11 +11,11 @@ export type ChainConfig = {
   publicRPCUrl: string;
 };
 
-export type HeartMinterConfig = {
+export type HeartBitConfig = {
   [K in SupportedChain]: ChainConfig;
 };
 
-export type MintArgs = {
+export type HeartBitArgs = {
   message?: string;
   signature?: string;
   startBlock?: number;
@@ -23,12 +23,12 @@ export type MintArgs = {
   url: string;
 };
 
-export type TotalSupplyArgs = {
-  url?: string;
+export type TotalHeartBitCountArgs = {
+  hash: string;
 };
 
-export type UserBalanceArgs = {
-  url: string;
+export type HeartBitCountByUserArgs = {
+  hash: string;
   address: string;
 };
 

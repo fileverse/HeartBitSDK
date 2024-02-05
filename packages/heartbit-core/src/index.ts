@@ -1,10 +1,10 @@
 import { HEART_MINTER_CONFIG } from "./constants";
 import type {
-  TotalSupplyArgs,
+  TotalHeartBitCountArgs,
   HeartbitCoreOptions,
-  MintArgs,
+  HeartBitArgs,
   SupportedChain,
-  UserBalanceArgs,
+  HeartBitCountByUserArgs,
 } from "./types";
 
 import {
@@ -33,7 +33,7 @@ export class HeartbitCore {
     this.#contract = getMinterContract(chain, this.#rpcProvider);
   }
 
-  async mintHeartbit(opts: MintArgs) {
+  async mintHeartbit(opts: HeartBitArgs) {
     const { message, signature, startBlock, address, url } = opts;
 
     const response = await fetch(this.#backendApi, {
@@ -56,9 +56,9 @@ export class HeartbitCore {
     return data;
   }
 
-  async getTotalSupply(opts: TotalSupplyArgs) {
-    const { url } = opts;
-    const tokenId = await this.getHeartbitUrlTokenMap(url as string);
+  async getTotalSupply(opts: TotalHeartBitCountArgs) {
+    const { hash } = opts;
+    const tokenId = await this.getHeartbitUrlTokenMap(hash);
     return await this.#contract.totalSupply?.(tokenId);
   }
 
@@ -66,9 +66,9 @@ export class HeartbitCore {
     return await this.#contract.urlTokenMap?.(url);
   }
 
-  async getUserBalance(opts: UserBalanceArgs) {
-    const { address, url } = opts;
-    const tokenId = await this.getHeartbitUrlTokenMap(url);
+  async getUserBalance(opts: HeartBitCountByUserArgs) {
+    const { address, hash } = opts;
+    const tokenId = await this.getHeartbitUrlTokenMap(hash);
 
     const balance = await this.#contract.balanceOf?.(address, tokenId);
     return parseInt(balance);

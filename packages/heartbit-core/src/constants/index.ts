@@ -1,23 +1,23 @@
-import type { HeartMinterConfig } from "../types/index.js";
+import type { HeartBitConfig } from "../types/index.js";
 
 export const PUBLIC_RPC_URL_MAP = {
   sepolia: "https://rpc.ankr.com/eth_sepolia",
-  gnosis: "https://rpc.ankr.com/gnosis",
+  base: "https://rpc.ankr.com/base",
 };
 
-export const HEART_MINTER_CONFIG: HeartMinterConfig = {
-  sepolia: {
+export const HEART_MINTER_CONFIG: HeartBitConfig = {
+  "0xaa36a7": {
     chainId: 11155111,
     backendApi: "https://dev-fileverse-gate.herokuapp.com/account/mint-heart",
-    contractAddress: "0x22DC4599B5e772aEB0BDAFE12e45FfB9B22653b9",
+    contractAddress: "0x47E3fd3331a89822A980DA7Fe51592bD6f900FE6",
     publicRPCUrl: PUBLIC_RPC_URL_MAP.sepolia,
   },
-  gnosis: {
-    chainId: 100,
+  "0x2105": {
+    chainId: 8453,
     backendApi:
       "https://fileverse-portal-gate.herokuapp.com/account/mint-heart",
-    contractAddress: "0x5FeEf4DEDD03bd5368b72CfC2857168B10d930aa",
-    publicRPCUrl: PUBLIC_RPC_URL_MAP.gnosis,
+    contractAddress: "0x5290B2e25c98015cE80b43C5c5CfBd01aA372E04",
+    publicRPCUrl: PUBLIC_RPC_URL_MAP.base,
   },
 };
 

@@ -1,0 +1,46 @@
+.frame {
+  text-align: center;
+}
+.heart {
+  display: inline-block;
+  cursor: pointer;
+  @media (max-width: 1025px) {
+    transform: scale(0.35, 0.35);
+  }
+  animation: scale-up-down-large 3s infinite;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    animation: none;
+  }
+
+  &.completed {
+    animation: none;
+  }
+
+  &.beat {
+    animation: scale-up-down-large 3s infinite;
+  }
+
+  @keyframes scale-up-down-large {
+    0%,
+    100% {
+      transform: scale(1, 1);
+    }
+    25%,
+    75% {
+      transform: scale(1.1, 1.1);
+    }
+  }
+}
+
+.heart_container {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .tooltip {
+    width: 50px;
+    font-size: 16px;
+  }
+}
