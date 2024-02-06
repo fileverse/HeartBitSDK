@@ -15,12 +15,13 @@ export type HeartBitConfig = {
   [K in SupportedChain]: ChainConfig;
 };
 
-export type HeartBitArgs = {
-  message?: string;
-  signature?: string;
-  startBlock?: number;
-  address?: string;
-  url: string;
+export type MintHeartBitArgs = {
+  message: string;
+  signature: string;
+  startTime: number;
+  endTime: number;
+  address: string;
+  hash: string;
 };
 
 export type TotalHeartBitCountArgs = {
@@ -32,7 +33,7 @@ export type HeartBitCountByUserArgs = {
   address: string;
 };
 
-export type HeartbitCoreOptions = {
+export interface HeartBitCoreOptions {
   chain: SupportedChain;
   rpcUrl?: string;
-};
+}

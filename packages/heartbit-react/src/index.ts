@@ -1,2 +1,9 @@
-export { HeartBitUI, type HeartBitProps } from "./components";
-export { type HeartbitCoreOptions } from "../../heartbit-core/dist/types";
+export {
+  HeartBitUI,
+  HeartBitProvider,
+  useHeartBit,
+  HeartBit,
+  type HeartBitProps,
+} from "./components";
+
+export { type HeartBitCoreOptions } from "../../heartbit-core/dist/types";

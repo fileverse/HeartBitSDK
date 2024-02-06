@@ -1,8 +1,8 @@
 import { HEART_MINTER_CONFIG } from "./constants";
 import type {
   TotalHeartBitCountArgs,
-  HeartbitCoreOptions,
-  HeartBitArgs,
+  HeartBitCoreOptions,
+  MintHeartBitArgs,
   SupportedChain,
   HeartBitCountByUserArgs,
 } from "./types";
@@ -14,13 +14,13 @@ import {
 } from "ethers";
 import { getMinterContract, getHashedString } from "./utils";
 
-export class HeartbitCore {
+export class HeartBitCore {
   chain: SupportedChain;
   #backendApi: string;
   #contract: Contract;
   #rpcProvider: JsonRpcProvider;
 
-  constructor(opts: HeartbitCoreOptions) {
+  constructor(opts: HeartBitCoreOptions) {
     const { chain, rpcUrl } = opts;
 
     if (!chain) throw new Error("Chain is required");
@@ -33,21 +33,14 @@ export class HeartbitCore {
     this.#contract = getMinterContract(chain, this.#rpcProvider);
   }
 
-  async mintHeartbit(opts: HeartBitArgs) {
-    const { message, signature, startBlock, address, url } = opts;
-
+  async mintHeartBit(opts: MintHeartBitArgs) {
     const response = await fetch(this.#backendApi, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        message,
-        signature,
-        startBlock: startBlock,
-        invokerAddress: address,
-        rawUrl: url,
-        urlString: getHashedString(url),
+        ...opts,
       }),
     });
 
@@ -56,7 +49,7 @@ export class HeartbitCore {
     return data;
   }
 
-  async getTotalSupply(opts: TotalHeartBitCountArgs) {
+  async getTotalHeartBitCountByHash(opts: TotalHeartBitCountArgs) {
     const { hash } = opts;
     const tokenId = await this.getHeartbitUrlTokenMap(hash);
     return await this.#contract.totalSupply?.(tokenId);
@@ -66,17 +59,20 @@ export class HeartbitCore {
     return await this.#contract.urlTokenMap?.(url);
   }
 
-  async getUserBalance(opts: HeartBitCountByUserArgs) {
+  async getHeartBitByUser(opts: HeartBitCountByUserArgs) {
     const { address, hash } = opts;
     const tokenId = await this.getHeartbitUrlTokenMap(hash);
 
     const balance = await this.#contract.balanceOf?.(address, tokenId);
     return parseInt(balance);
   }
-
-  async getStartBlock() {
-    return await this.#rpcProvider.getBlockNumber();
-  }
 }
 
-export { getHashedString, type HeartbitCoreOptions, type SupportedChain };
+export {
+  getHashedString,
+  type HeartBitCoreOptions,
+  type SupportedChain,
+  type HeartBitCountByUserArgs,
+  type MintHeartBitArgs,
+  type TotalHeartBitCountArgs,
+};

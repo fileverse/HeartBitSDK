@@ -1,4 +1,4 @@
-import type { HeartbitCoreOptions } from "../../../../heartbit-core/dist/types";
+import type { HeartBitCoreOptions } from "@fileverse/heartbit-core";
 
 export interface OnMintArgs {
   url: string;
@@ -26,10 +26,8 @@ export interface HeartBitUIProps {
   resetHeart?: () => void;
 }
 
-export interface HeartBitProps {
-  coreOptions: HeartbitCoreOptions; // HeartbitCore SDK options
-  address?: string; // User address
-  scale?: number;
-  showFillPercentage?: boolean;
-  getSignatureArgsHook: () => Promise<SignatureArgs>; // Callback function to be called when the user clicks on the HeartBit component
+export interface HeartBitProps extends HeartBitUIProps {
+  coreOptions: HeartBitCoreOptions; // HeartbitCore SDK options
+  address: string; // User address
+  getSignatureArgsHook?: () => Promise<SignatureArgs>; // Callback function to be called when the user clicks on the HeartBit component
 }
