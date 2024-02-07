@@ -1,6 +1,6 @@
 {
   "name": "@fileverse/heartbit-core",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "type": "module",
   "main": "./dist/esm/index.ts",

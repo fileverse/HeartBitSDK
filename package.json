@@ -1,13 +1,19 @@
 {
   "name": "heartbitsdk",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "HeartBit SDK for on-chain analytics",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pnpm run --r --filter \"./packages/**\" build",
+    "build:react": "pnpm --filter heartbit-react build",
+    "build:core": "pnpm --filter heartbit-core build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "heartbitsdk",
+    "heartbit-react",
+    "heartbit-core",
+    "onchain-analytics"
+  ],
+  "author": "fileverse.io",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.11.6",
