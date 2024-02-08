@@ -2,6 +2,7 @@
   "name": "heartbitsdk",
   "version": "0.0.1",
   "description": "HeartBit SDK for on-chain analytics",
+  "private": true,
   "scripts": {
     "build": "pnpm run --r --filter \"./packages/**\" build",
     "build:react": "pnpm --filter heartbit-react build",
