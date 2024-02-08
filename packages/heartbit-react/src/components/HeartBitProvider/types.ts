@@ -9,15 +9,10 @@ import type {
 export interface IHeartBitContext {
   getTotalHeartMintsByUser: (opts: HeartBitCountByUserArgs) => Promise<number>;
   getTotalHeartBitByHash: (opts: TotalHeartBitCountArgs) => Promise<number>;
-  mintHeartBit: (opts: MintHeartBitArgs) => Promise<any>;
+  mintHeartBit: (opts: MintHeartBitArgs) => Promise<void>;
 }
 
 export interface HeartBitProviderProps {
   children: React.ReactNode;
   coreOptions: HeartBitCoreOptions;
-}
-
-export interface TimeStampState {
-  startTime: number;
-  endTime: number;
 }

@@ -8,7 +8,7 @@ export interface HeartBitUIProps {
   scale?: number;
   defaultFillPos?: DefaultFillRange;
   startFillPos?: TotalFillRange;
-  isDisabled: boolean;
+  isDisabled?: boolean;
 }
 
 export interface InternalHandlerRef {

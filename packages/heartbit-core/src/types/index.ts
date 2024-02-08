@@ -24,14 +24,14 @@ export interface MintHeartBitArgs {
   hash: string;
 }
 
-export type TotalHeartBitCountArgs = {
+export interface TotalHeartBitCountArgs {
   hash: string;
-};
+}
 
-export type HeartBitCountByUserArgs = {
+export interface HeartBitCountByUserArgs {
   hash: string;
   address: string;
-};
+}
 
 export interface HeartBitCoreOptions {
   chain: SupportedChain;
