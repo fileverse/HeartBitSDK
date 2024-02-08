@@ -48,7 +48,6 @@
   },
   "dependencies": {
     "@fileverse/heartbit-core": "workspace:*",
-    "classnames": "^2.5.1",
-    "ethers": "^6.10.0"
+    "classnames": "^2.5.1"
   }
 }
