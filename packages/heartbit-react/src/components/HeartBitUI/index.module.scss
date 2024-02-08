@@ -13,7 +13,7 @@
     animation: none;
   }
 
-  &.completed {
+  &.disabled {
     animation: none;
   }
 
@@ -30,17 +30,5 @@
     75% {
       transform: scale(1.1, 1.1);
     }
-  }
-}
-
-.heart_container {
-  width: fit-content;
-  height: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  .tooltip {
-    width: 50px;
-    font-size: 16px;
   }
 }

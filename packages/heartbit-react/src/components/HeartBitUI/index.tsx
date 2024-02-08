@@ -1,146 +1,129 @@
-import React from "react";
-import { useCallback, useRef, useState, memo } from "react";
+import {
+  useCallback,
+  useRef,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+} from "react";
 import styles from "./index.module.scss";
-import { HeartBitUIProps } from "./types";
+import type {
+  HeartBitUIProps,
+  InternalHandlerRef,
+  TotalFillRange,
+} from "./types";
 import { HEART_CV_HEIGHT, HEART_CV_WIDTH, makeHeartCanvas } from "../../utils";
+import clx from "classnames";
 
-export const HeartBitUI = memo(function HeartBitUI(props: HeartBitUIProps) {
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
+  (props, ref) => {
+    const {
+      scale = 3,
+      onMouseDown,
+      onMouseUp,
+      defaultFillPos = 2,
+      startFillPos = 0,
+      isDisabled = false,
+    } = props;
 
-  const [currentFillIdx, setCurrentFillIdx] = useState(0);
+    const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const [canvasContext, setCanvasContext] =
-    useState<CanvasRenderingContext2D | null>(null);
+    const [currentFillIdx, setCurrentFillIdx] = useState<TotalFillRange>(0);
 
-  const {
-    scale = 3,
-    showFillPercentage = false,
-    onMouseDown,
-    onMouseUp,
-  } = props;
+    useEffect(() => {
+      if (startFillPos) setCurrentFillIdx(startFillPos);
+    }, [startFillPos]);
 
-  const canvasCallbackRef = useCallback(
-    async (node: HTMLCanvasElement | null) => {
-      if (!node) return;
+    const [canvasContext, setCanvasContext] =
+      useState<CanvasRenderingContext2D | null>(null);
 
-      const context = node.getContext("2d") as CanvasRenderingContext2D;
+    const canvasCallbackRef = useCallback(
+      async (node: HTMLCanvasElement | null) => {
+        if (!node) return;
 
-      node.width = scale * HEART_CV_WIDTH;
-      node.height = scale * HEART_CV_HEIGHT;
+        const context = node.getContext("2d") as CanvasRenderingContext2D;
 
-      makeHeartCanvas({
-        canvasContext: context,
-        fillPosition: 1,
-        scale,
-      });
+        node.width = scale * HEART_CV_WIDTH;
+        node.height = scale * HEART_CV_HEIGHT;
 
-      setCanvasContext(context);
-    },
-    [scale]
-  );
+        makeHeartCanvas({
+          canvasContext: context,
+          fillPosition: startFillPos || defaultFillPos,
+          scale,
+        });
 
-  const onMousedown = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (!canvasContext || currentFillIdx >= 10) return;
+        setCanvasContext(context);
+      },
+      [defaultFillPos, scale, startFillPos]
+    );
 
-    if (onMouseDown && typeof onMouseDown === "function") onMouseDown(e);
+    const onMousedown = (e: React.MouseEvent<HTMLCanvasElement>) => {
+      if (!canvasContext || currentFillIdx >= 10 || isDisabled) return;
 
-    let idx = currentFillIdx;
-    intervalRef.current = setInterval(() => {
+      if (onMouseDown && typeof onMouseDown === "function") onMouseDown(e);
+
+      let idx = currentFillIdx;
+      intervalRef.current = setInterval(() => {
+        if (idx >= 10) {
+          clearInterval(intervalRef.current as ReturnType<typeof setInterval>);
+          return;
+        }
+        canvasContext.reset();
+        makeHeartCanvas({
+          canvasContext,
+          fillPosition: idx + 1,
+          scale,
+        });
+
+        if (idx < 10) idx += 1;
+
+        setCurrentFillIdx(idx);
+      }, 750);
+    };
+
+    const onReset = useCallback(() => {
+      if (!canvasContext) return;
+
       canvasContext.reset();
-      if (idx >= 10) {
-        clearInterval(intervalRef.current as ReturnType<typeof setInterval>);
-        return;
-      }
-
       makeHeartCanvas({
         canvasContext,
-        fillPosition: idx + 1,
+        fillPosition: startFillPos || defaultFillPos,
         scale,
       });
 
-      if (idx < 10) idx += 1;
+      setCanvasContext(canvasContext);
 
-      setCurrentFillIdx(idx);
-    }, 750);
-  };
+      setCurrentFillIdx(startFillPos);
+    }, [canvasContext, defaultFillPos, scale, startFillPos]);
 
-  // const onReset = () => {
-  //   if (!canvasContext) return;
+    useImperativeHandle(
+      ref,
+      () => {
+        return {
+          onReset,
+        };
+      },
+      [onReset]
+    );
 
-  //   canvasContext.reset();
-  //   makeHeartCanvas({
-  //     canvasContext,
-  //     fillPosition: 1,
-  //     scale,
-  //   });
-  //   setCanvasContext(canvasContext);
-  // };
+    const onMouseup = async (e: React.MouseEvent<HTMLCanvasElement>) => {
+      if (isDisabled) return;
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
 
-  const onMouseup = async (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    if (onMouseUp && typeof onMouseUp === "function") onMouseUp(e);
-  };
-  const fillText = currentFillIdx ? `${currentFillIdx * 10} %` : "0 %";
-  return (
-    <div className={styles.heart_container}>
+      if (onMouseUp && typeof onMouseUp === "function") onMouseUp(e);
+    };
+
+    return (
       <canvas
         onMouseDown={onMousedown}
         onMouseUp={onMouseup}
-        className={styles.heart}
+        className={clx(styles.heart, { [styles.disabled]: isDisabled })}
         ref={canvasCallbackRef}
       />
-      {showFillPercentage && <div className={styles.tooltip}>{fillText}</div>}
-    </div>
-  );
-});
+    );
+  }
+);
 
-// const CoreSDK = useMemo(() => {
-//   return new HeartbitCore(coreOptions)
-// }, [coreOptions])
-
-// const fetchUserBalance = useCallback(async () => {
-//   if (!CoreSDK || !address) return
-
-//   const url = getHashedString(window.location.href)
-//   const balance = await CoreSDK.getUserBalance({ address, url })
-
-//   setUserBalance(balance)
-
-//   // if (balance > 10)
-//   //   setMintedPercentage(() => {
-//   //     if (balance >= 100) return NumberMap[100]
-//   //     const res = Math.round(balance / 10) * 10
-//   //     return NumberMap[res]
-//   //   })
-// }, [CoreSDK, address])
-
-// useEffect(() => {
-//   fetchUserBalance()
-// }, [fetchUserBalance])
-
-// const callMint = async () => {
-//   try {
-//     if (!CoreSDK || !address) return
-//     const { message, signature, url, onMintCallback } =
-//       await getSignatureArgsHook()
-
-//     const response = await CoreSDK.mintHeartbit({
-//       address,
-//       message,
-//       signature,
-//       startBlock: await CoreSDK.getStartBlock(),
-//       url,
-//     })
-
-//     await fetchUserBalance()
-//     if (onMintCallback && typeof onMintCallback === 'function')
-//       onMintCallback()
-//     else return response
-//   } catch (err) {
-//     onReset()
-//   } finally {
-//     setSigning(false)
-//   }
-// }
+export { HeartBitUI, type HeartBitUIProps, type InternalHandlerRef };

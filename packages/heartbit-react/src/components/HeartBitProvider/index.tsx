@@ -1,10 +1,7 @@
-import { createContext, useMemo, useState } from "react";
-import { getNowTimeInSeconds } from "../../utils";
-import type {
-  IHeartBitContext,
-  HeartBitProviderProps,
-  TimeStampState,
-} from "./types";
+import { createContext, useCallback, useMemo } from "react";
+
+import type { IHeartBitContext, HeartBitProviderProps } from "./types";
+
 import {
   HeartBitCore,
   type HeartBitCountByUserArgs,
@@ -12,62 +9,56 @@ import {
   type MintHeartBitArgs,
 } from "@fileverse/heartbit-core";
 
-export const HeartBitContext = createContext<IHeartBitContext | null>(null);
+const HeartBitContext = createContext<IHeartBitContext | null>(null);
 
-export const HeartBitProvider = (props: HeartBitProviderProps) => {
-  const { children } = props;
+const HeartBitProvider = (props: HeartBitProviderProps) => {
+  const { children, coreOptions } = props;
 
-  const [timeStamps, setTimeStamps] = useState<TimeStampState>({
-    startTime: 0,
-    endTime: 0,
-  });
+  const coreSDK = useMemo(() => new HeartBitCore(coreOptions), [coreOptions]);
 
-  const coreSDK = useMemo(
-    () => new HeartBitCore(props.coreOptions),
-    [props.coreOptions]
+  const getTotalHeartMintsByUser = useCallback(
+    async (opts: HeartBitCountByUserArgs) => {
+      const totalMints = await coreSDK.getHeartBitByUser(opts);
+      return totalMints;
+    },
+    [coreSDK]
   );
 
-  const getTotalHeartMintsByUser = async (opts: HeartBitCountByUserArgs) => {
-    const totalMints = await coreSDK.getHeartBitByUser(opts);
-    return totalMints;
-  };
+  const getTotalHeartBitByHash = useCallback(
+    async (opts: TotalHeartBitCountArgs) => {
+      const totalMints = await coreSDK.getTotalHeartBitCountByHash(opts);
+      return totalMints;
+    },
+    [coreSDK]
+  );
 
-  const getTotalHeartBitByHash = async (opts: TotalHeartBitCountArgs) => {
-    const totalMints = await coreSDK.getTotalHeartBitCountByHash(opts);
-    return totalMints;
-  };
+  const mintHeartBit = useCallback(
+    async (opts: MintHeartBitArgs) => {
+      const minted = await coreSDK.mintHeartBit(opts);
+      return minted;
+    },
+    [coreSDK]
+  );
 
-  const captureStartTime = () => {
-    setTimeStamps((prevState) => ({
-      ...prevState,
-      startTime: getNowTimeInSeconds(),
-    }));
-  };
-
-  const mintHeartBit = async (opts: MintHeartBitArgs) => {
-    const minted = await coreSDK.mintHeartBit(opts);
-    return minted;
-  };
-
-  const captureEndTime = () => {
-    setTimeStamps((prevState) => ({
-      ...prevState,
-      endTime: getNowTimeInSeconds(),
-    }));
-  };
-
-  const contextValue = {
-    captureStartTime,
-    captureEndTime,
-    getTotalHeartMintsByUser,
-    getTotalHeartBitByHash,
-    mintHeartBit,
-    ...timeStamps,
-  };
+  const contextValue = useMemo(
+    () => ({
+      getTotalHeartMintsByUser,
+      getTotalHeartBitByHash,
+      mintHeartBit,
+    }),
+    [getTotalHeartBitByHash, getTotalHeartMintsByUser, mintHeartBit]
+  );
 
   return (
     <HeartBitContext.Provider value={contextValue}>
       {children}
     </HeartBitContext.Provider>
   );
+};
+
+export {
+  HeartBitProvider,
+  HeartBitContext,
+  type IHeartBitContext,
+  type HeartBitProviderProps,
 };

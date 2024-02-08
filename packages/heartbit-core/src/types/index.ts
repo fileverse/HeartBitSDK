@@ -9,20 +9,20 @@ export type ChainConfig = {
   backendApi: string;
   contractAddress: string;
   publicRPCUrl: string;
+  apiKey: string;
 };
 
 export type HeartBitConfig = {
   [K in SupportedChain]: ChainConfig;
 };
 
-export type MintHeartBitArgs = {
+export interface MintHeartBitArgs {
   message: string;
   signature: string;
   startTime: number;
   endTime: number;
-  address: string;
   hash: string;
-};
+}
 
 export type TotalHeartBitCountArgs = {
   hash: string;

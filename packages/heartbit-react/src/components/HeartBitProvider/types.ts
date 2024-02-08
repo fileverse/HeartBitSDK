@@ -1,16 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type {
   HeartBitCoreOptions,
   HeartBitCountByUserArgs,
   TotalHeartBitCountArgs,
+  MintHeartBitArgs,
 } from "@fileverse/heartbit-core";
 
 export interface IHeartBitContext {
-  captureStartTime: () => void;
-  captureEndTime: () => void;
   getTotalHeartMintsByUser: (opts: HeartBitCountByUserArgs) => Promise<number>;
   getTotalHeartBitByHash: (opts: TotalHeartBitCountArgs) => Promise<number>;
-  startTime: number;
-  endTime: number;
+  mintHeartBit: (opts: MintHeartBitArgs) => Promise<any>;
 }
 
 export interface HeartBitProviderProps {

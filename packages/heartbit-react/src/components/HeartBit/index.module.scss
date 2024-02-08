@@ -1,0 +1,13 @@
+.heart_bit_container {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: inherit;
+  .tooltip {
+    display: flex;
+    font-size: 16px;
+    gap: 10px;
+  }
+}

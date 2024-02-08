@@ -19,6 +19,7 @@ export class HeartBitCore {
   #backendApi: string;
   #contract: Contract;
   #rpcProvider: JsonRpcProvider;
+  #apiKey: string;
 
   constructor(opts: HeartBitCoreOptions) {
     const { chain, rpcUrl } = opts;
@@ -31,37 +32,37 @@ export class HeartBitCore {
       rpcUrl || HEART_MINTER_CONFIG[chain].publicRPCUrl
     );
     this.#contract = getMinterContract(chain, this.#rpcProvider);
+    this.#apiKey = HEART_MINTER_CONFIG[chain].apiKey;
   }
 
   async mintHeartBit(opts: MintHeartBitArgs) {
-    const response = await fetch(this.#backendApi, {
+    await fetch(this.#backendApi, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "x-api-key": this.#apiKey,
       },
       body: JSON.stringify({
         ...opts,
       }),
     });
-
-    const data = await response.json();
-
-    return data;
   }
 
   async getTotalHeartBitCountByHash(opts: TotalHeartBitCountArgs) {
     const { hash } = opts;
-    const tokenId = await this.getHeartbitUrlTokenMap(hash);
+    const tokenId = await this.getHeartbitHashTokenMap(hash);
     return await this.#contract.totalSupply?.(tokenId);
   }
 
-  async getHeartbitUrlTokenMap(url: string) {
-    return await this.#contract.urlTokenMap?.(url);
+  async getHeartbitHashTokenMap(url: string) {
+    const hashTokenMap = await this.#contract.hashTokenMap?.(url);
+
+    return hashTokenMap;
   }
 
   async getHeartBitByUser(opts: HeartBitCountByUserArgs) {
     const { address, hash } = opts;
-    const tokenId = await this.getHeartbitUrlTokenMap(hash);
+    const tokenId = await this.getHeartbitHashTokenMap(hash);
 
     const balance = await this.#contract.balanceOf?.(address, tokenId);
     return parseInt(balance);

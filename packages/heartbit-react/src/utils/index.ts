@@ -35,3 +35,21 @@ export const makeHeartCanvas = (opts: UpdateCanvasFillArgs) => {
 };
 
 export const getNowTimeInSeconds = () => Math.floor(Date.now() / 1000);
+
+export const formatNumbers = (num: number) => {
+  if (num < 1000) return num.toString();
+  if (num < 10000)
+    return num.toString().slice(0, 1) + "," + num.toString().slice(1);
+  if (num < 1000000) {
+    if (num % 1000 === 0) return num / 1000 + "K";
+    return (num / 1000).toFixed(1) + "K";
+  }
+  if (num % 1000000 === 0) return num / 1000000 + "M";
+  return (num / 1000000).toFixed(1) + "M";
+};
+
+export const getStartFillPosition = (totalMintsByUser: number) => {
+  if (totalMintsByUser >= 100) return 10;
+  if (totalMintsByUser < 60) return 0;
+  return 5;
+};

@@ -1,33 +1,16 @@
-import type { HeartBitCoreOptions } from "@fileverse/heartbit-core";
-
-export interface OnMintArgs {
-  url: string;
-  message: string;
-}
-
-export interface MintResponse {
-  transactionHash?: string;
-}
-
-export interface SignatureArgs {
-  message: string;
-  signature: string;
-  url: string;
-  onMintCallback?: () => MintResponse;
-}
-
+export type TotalFillRange = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+type DefaultFillRange = 1 | 2 | 3 | 4 | 5;
 export interface HeartBitUIProps {
-  scale?: number;
-  showFillPercentage?: boolean;
   onMouseUp?: (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => void;
   onMouseDown?: (
     event: React.MouseEvent<HTMLCanvasElement, MouseEvent>
   ) => void;
-  resetHeart?: () => void;
+  scale?: number;
+  defaultFillPos?: DefaultFillRange;
+  startFillPos?: TotalFillRange;
+  isDisabled: boolean;
 }
 
-export interface HeartBitProps extends HeartBitUIProps {
-  coreOptions: HeartBitCoreOptions; // HeartbitCore SDK options
-  address: string; // User address
-  getSignatureArgsHook?: () => Promise<SignatureArgs>; // Callback function to be called when the user clicks on the HeartBit component
+export interface InternalHandlerRef {
+  onReset: () => void;
 }
