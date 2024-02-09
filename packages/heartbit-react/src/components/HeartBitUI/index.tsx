@@ -24,6 +24,7 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
       defaultFillPos = 2,
       startFillPos = 0,
       isDisabled = false,
+      disableBeatingAnimation = false,
     } = props;
 
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -119,7 +120,9 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
       <canvas
         onMouseDown={onMousedown}
         onMouseUp={onMouseup}
-        className={clx(styles.heart, { [styles.disabled]: isDisabled })}
+        className={clx(styles.heart, {
+          [styles.disabled]: isDisabled || disableBeatingAnimation,
+        })}
         ref={canvasCallbackRef}
       />
     );

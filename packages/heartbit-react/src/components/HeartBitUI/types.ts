@@ -9,6 +9,7 @@ export interface HeartBitUIProps {
   defaultFillPos?: DefaultFillRange;
   startFillPos?: TotalFillRange;
   isDisabled?: boolean;
+  disableBeatingAnimation?: boolean;
 }
 
 export interface InternalHandlerRef {

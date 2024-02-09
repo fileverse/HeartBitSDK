@@ -46,6 +46,7 @@ interface HeartBitUIProps {
   defaultFillPos?: DefaultFillRange; //Default Value = 2. default position of fill in heart on load, onMouseDown the fill will always start from 0 not from defaultFillPos.
   startFillPos?: TotalFillRange; // Default Value = 0. start fill position in heart on load, onMouseDown the fill will resume from this position.
   isDisabled?: boolean; // Default Value = false. disables all actions.
+  disableBeatingAnimation?: boolean; // Default Value = false. disables heat beating animation
 }
 ```
 
