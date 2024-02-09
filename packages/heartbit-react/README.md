@@ -1,5 +1,20 @@
 # @fileverse/heartbit-react
 
+### About the project
+
+This library contains react components to capture on chain timespent by a user. At the end of the flow an ERC1155 NFT is minted to the user address.
+
+Main Exports of this library are
+
+- HeartBitUI - A heart component made with canvas
+- HeartBitProvider and useHeartbit - Provider and hook that exposes heartbit mint functionality to its children
+- HeartBit - A Plug and Play integration of the HeartBitUI and HeartBitProvider
+
+### Supported Chain
+
+- Sepolia - 0xaa36a7
+- base - 0x2105
+
 ### Installation
 
 ```
@@ -13,20 +28,15 @@ yarn add @fileverse/heartbit-react
 ### Dependencies
 
 **Required Peer Dependencies**
-These libraries are not bundled with Reactstrap and required at runtime:
+These libraries are not bundled with in this package and required at runtime:
 
 - react
 - react-dom
 
-### About the project
+**Other Dependencies**
 
-This library contains react components to capture on chain timespent by a user. At the end of the flow an ERC1155 NFT is minted to the user address.
-
-Main Exports of this library are
-
-- HeartBitUI - A heart component made with canvas
-- HeartBitProvider and useHeartbit - Provider and hook that exposes heartbit mint functionality to its children
-- HeartBit - A Plug and Play integration of the HeartBitUI and HeartBitProvider
+- @fileverse/heartbit-core
+- classnames
 
 ## HeartBitUI
 
