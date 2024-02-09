@@ -4,9 +4,6 @@
 .heart {
   display: inline-block;
   cursor: pointer;
-  @media (max-width: 1025px) {
-    transform: scale(0.35, 0.35);
-  }
   animation: scale-up-down-large 3s infinite;
   transition: all 0.3s ease-in-out;
   &:hover {

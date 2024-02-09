@@ -47,6 +47,7 @@ interface HeartBitUIProps {
   startFillPos?: TotalFillRange; // Default Value = 0. start fill position in heart on load, onMouseDown the fill will resume from this position.
   isDisabled?: boolean; // Default Value = false. disables all actions.
   disableBeatingAnimation?: boolean; // Default Value = false. disables heat beating animation
+  fillInterval?: number; // Default Value = 750. Interval at which the heart fills in milliseconds
 }
 ```
 
@@ -183,17 +184,19 @@ interface HeartBitProps
 ### Usage
 
 ```javascript
-import { useSignMessage, useAccount } from "wagmi";
+import { HeartBit, type SupportedChain } from "@fileverse/heartbit-react";
 import { SiweMessage } from "siwe";
-import { HeartBit } from "@fileverse/heartbit-react";
-import { keccak256, toUtf8Bytes } from "ethers";
+import { BrowserProvider, keccak256, toUtf8Bytes } from "ethers";
 
 const MyApp = () => {
-  const { signMessageAsync } = useSignMessage();
-  const { address } = useAccount();
+  const provider = new BrowserProvider((window as any).ethereum);
 
   const hash = keccak256(toUtf8Bytes(window.location.href));
+
   const signMessageHook = async () => {
+    const signer = await provider.getSigner()
+    const address = await signer.getAddress();
+
     const siweMessage = new SiweMessage({
       domain: window.location.host,
       address,
@@ -201,21 +204,28 @@ const MyApp = () => {
       uri: window.location.origin,
       version: "1",
     });
+
     const message = siweMessage.prepareMessage();
-    const signature = await signMessageAsync(message);
+    const signature = await signer.signMessage(message);
+
     return {
       message,
       signature,
+      onMintCallback: () => {
+        console.log("Minted!")
+      }
     };
   };
 
-  return (
-    <HeartBit
-      coreOptions={coreOptions}
-      address={address}
-      getSignatureArgsHook={signMessageHook}
-      hash={hash}
-    />
-  );
-};
+  const coreOptions = {
+    chain: "0xaa36a7" as SupportedChain
+  }
+
+  return <HeartBit
+          coreOptions={coreOptions}
+          getSignatureArgsHook={signMessageHook}
+          hash={hash}
+          scale={10}
+        />;
+}
 ```

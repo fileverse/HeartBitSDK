@@ -25,6 +25,7 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
       startFillPos = 0,
       isDisabled = false,
       disableBeatingAnimation = false,
+      fillInterval = 750,
     } = props;
 
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -79,7 +80,7 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
         if (idx < 10) idx += 1;
 
         setCurrentFillIdx(idx);
-      }, 750);
+      }, fillInterval);
     };
 
     const onReset = useCallback(() => {
