@@ -40,7 +40,7 @@ This is the foundation of the HeartBit functionality. It exposes the APIs that a
 
 ### HeartBit Contract
 
-The HeartMint smart contract is a ERC1155-based contract on the Ethereum blockchain designed to facilate minting of ERC1155 nfts to users. It features role-based access control for enhanced security, supports meta-transactions for user-friendly gasless interactions, and introduces a unique minting mechanism tied to time-based criteria.
+The HeartMint smart contract is a ERC1155-based contract on the Ethereum blockchain designed to facilitate minting of ERC1155 tokens to users. It features role-based access control for enhanced security, supports meta-transactions for user-friendly gasless interactions, and introduces a unique minting mechanism tied to time-based criteria.
 
 #### Relevant Links
 
@@ -49,17 +49,17 @@ The HeartMint smart contract is a ERC1155-based contract on the Ethereum blockch
 
 ## Contributing
 
-We welcome contributions from everyone who is willing to improve this project. Here's how you can contribute:
+We welcome contributions from everyone who is willing to improve this project! Here's how you can contribute:
 
 ### Reporting Issues
 
-Before creating bug reports, please check the [issue tracker](https://github.com/fileverse/HeartBitSDK/issues) to avoid duplicates. When you are creating a bug report, please make sure to follow the [issue template](https://github.com/fileverse/HeartBitSDK/issues/1) with details about your specific isue.
+Before creating bug reports, please check the [issue tracker](https://github.com/fileverse/HeartBitSDK/issues) to avoid duplicates. When you are creating a bug report, please make sure to follow the [issue template](LINK_TO_ISSUE_TEMPLATE) with details about your specific isue.
 
 ### Pull Requests
 
 Please follow these steps to have your contribution considered by the maintainers:
 
-1. Use the fork and pull model to make your changes. Fork the repo and make your changes in your fork. This is how you can propose changes to the project.
+1. Use the fork and pull model to make your changes. Fork the repo and make your changes in your fork (this is how you can propose changes to the project)
 2. When you're ready with your changes, create a pull request (PR) from your fork back to the original repo.
 3. Fill in the [pull request template](LINK_TO_PULL_REQUEST_TEMPLATE) with details about your contribution.
 4. Follow the [style guides](LINK_TO_CODING_CONVENTIONS) for coding, documentation, etc.
@@ -67,6 +67,6 @@ Please follow these steps to have your contribution considered by the maintainer
 
 **After your pull request is merged**, you can safely delete your branch.
 
-### Community
+### Support
 
-To get help please reach out to us on [X](https://x.com/fileverse) or send us an [email](mailto:hello@fileverse.io?subject=[Help]HeartBitSDK).
+To get help please reach out to our team on [X](https://x.com/fileverse) or send us an [email](mailto:hello@fileverse.io?subject=[Help]HeartBitSDK).
