@@ -53,7 +53,7 @@ We welcome contributions from everyone who is willing to improve this project! H
 
 ### Reporting Issues
 
-Before creating bug reports, please check the [issue tracker](https://github.com/fileverse/HeartBitSDK/issues) to avoid duplicates. When you are creating a bug report, please make sure to follow the [issue template](LINK_TO_ISSUE_TEMPLATE) with details about your specific isue.
+Before creating bug reports, please check the [issue tracker](https://github.com/fileverse/HeartBitSDK/issues) to avoid duplicates. When you are creating a bug report, please make sure to follow the [issue template](https://github.com/fileverse/HeartBitSDK/issues/1) with details about your specific isue.
 
 ### Pull Requests
 
