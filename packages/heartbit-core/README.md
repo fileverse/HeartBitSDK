@@ -1,66 +1,72 @@
-# Heartbit Core
+# HeartBit Core
 
+## Introduction
 
-# Introduction
-This is the basis of the heartbit functionality. it exposes the APIs that are used to implement the heartbit functionality
+This is the core of the HeartBit functionality. It exposes the APIs that are crucial for implementing HeartBit functionalities.
 
-# Getting Started
+## Getting Started
 
-## Installation
+### Installation
 
-You can install using `npm` or `yarn`
+You can install the package using either `npm` or `yarn`:
 
- ```javascript
+```javascript
 npm install --save @fileverse/heartbit-core
 
-//or
+// or
 
 yarn add @fileverse/heartbit-core
 ```
 
-## Import and use the package
- ```javascript
+### Import and Use the Package
+
+```javascript
 import { HeartBitCore } from "@fileverse/heartbit-core";
 ```
-## Configure package
-the sdk makes use of `coreOption` to configure the network at which the user will be interacting with.
- ```javascript
+
+### Configure the Package
+
+The SDK utilizes `coreOption` to configure the network for user interactions.
+
+```javascript
 const coreSDK = new HeartBitCore({
-  chain: "0xaa36a7",
+	chain: "0xaa36a7",
 });
 ```
 
+### Example Usage
 
-Below is a minimal example of how you might want to use the sdk
+This minimal example demonstrates how to use `HeartBitCore` for minting and querying data.
+
 ```javascript
 async function main() {
-  const message = "Hello World!";
-  const signature = "0x...signed message";
-  const startTime = 1706898250;
-  const endTime = 1706898251;
-  const hash = "Hello World"; // keccak256 hash of a string
+	const message = "Hello World!";
+	const signature = "0x...signed message";
+	const startTime = 1706898250;
+	const endTime = 1706898251;
+	const hash = "Hello World"; // keccak256 hash of a string
 
-  // Mint HeartBit
+	// Mint HeartBit
 
-  await coreSDK.mintHeartBit({
-    message,
-    signature,
-    startTime,
-    endTime,
-    hash,
-  });
+	await coreSDK.mintHeartBit({
+		message,
+		signature,
+		startTime,
+		endTime,
+		hash,
+	});
 
-  // Get TotalSupply for a hash
+	// Get TotalSupply for a hash
 
-  const totalSupply = await coreSDK.getTotalHeartBitCountByHash({ hash });
+	const totalSupply = await coreSDK.getTotalHeartBitCountByHash({ hash });
 
-  // Get Total Mints By User
-  const address = "0x...ethaddress";
-  const mintsByUser = await coreSDK.getHeartBitByUser({
-    hash,
-    address,
-  });
+	// Get Total Mints By User
+	const address = "0x...ethaddress";
+	const mintsByUser = await coreSDK.getHeartBitByUser({
+		hash,
+		address,
+	});
 }
-
 ```
-[Here](https://codesandbox.io/p/devbox/heartbit-core-sdk-example-37h7hw) is a link to a working example
+
+[Here](https://codesandbox.io/p/devbox/heartbit-core-sdk-example-37h7hw) is a link to a working example using `HeartBitCore`.
