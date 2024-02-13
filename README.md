@@ -46,7 +46,26 @@ This is a plug and play integration of the heartbit sdk
 - [Etherscan](https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core)
 
 
-### Contribution
+## Contributing
+
+We welcome contributions from everyone who is willing to improve this project. Here's how you can contribute:
+
+### Reporting Issues
+
+Before creating bug reports, please check the issue tracker to avoid duplicates. When you are creating a bug report, please include as many details as possible.
+
+### Pull Requests
+
+Please follow these steps to have your contribution considered by the maintainers:
+
+1. Use the fork and pull model to make your changes. Fork the repo and make your changes in your fork. This is how you can propose changes to the project.
+2. When you're ready with your changes, create a pull request (PR) from your fork back to the original repo.
+3. Fill in the [pull request template](LINK_TO_PULL_REQUEST_TEMPLATE) with details about your contribution.
+4. Follow the [style guides](LINK_TO_CODING_CONVENTIONS) for coding, documentation, etc.
+5. After you submit your pull request, verify that all status checks are passing. If a check is failing, you will need to address the issue.
+
+**After your pull request is merged**, you can safely delete your branch.
+
 
 
 ### Community
