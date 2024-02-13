@@ -39,10 +39,10 @@ This is the basis of the heartbit functionality. it exposes the APIs that are us
 
 
 ### HeartBit Contract
-This is a plug and play integration of the heartbit sdk
+The HeartMint smart contract is a ERC1155-based contract on the Ethereum blockchain designed to facilate minting of ERC1155 nfts to users. It features role-based access control for enhanced security, supports meta-transactions for user-friendly gasless interactions, and introduces a unique minting mechanism tied to time-based criteria. 
 
 #### Relevant Links
-- [HeartBit smart contract](https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core)
+- [HeartBit smart contract](https://github.com/fileverse/fileverse-smartcontracts-v2/blob/feat/base/contracts/heartbit.sol)
 - [Etherscan](https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core)
 
 
