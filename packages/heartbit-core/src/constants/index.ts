@@ -8,15 +8,13 @@ export const PUBLIC_RPC_URL_MAP = {
 export const HEART_BIT_CONFIG: HeartBitConfig = {
   "0xaa36a7": {
     chainId: 11155111,
-    backendApi:
-      "https://frame-relayer-sepolia-90584fab9769.herokuapp.com/verify",
+    backendApi: "https://sepolia-heartbit.fileverse.io/signed-mint",
     contractAddress: "0x47E3fd3331a89822A980DA7Fe51592bD6f900FE6",
     publicRPCUrl: PUBLIC_RPC_URL_MAP.sepolia,
   },
   "0x2105": {
     chainId: 8453,
-    backendApi:
-      "https://fileverse-portal-gate.herokuapp.com/account/mint-heart",
+    backendApi: "https://base-heartbit.fileverse.io/signed-mint",
     contractAddress: "0x5290B2e25c98015cE80b43C5c5CfBd01aA372E04",
     publicRPCUrl: PUBLIC_RPC_URL_MAP.base,
   },
