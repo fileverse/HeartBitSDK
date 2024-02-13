@@ -1,15 +1,10 @@
-// User will pass signed message
-// Two modes:
-// Signed: User pass message and signature
-// Signless: We initialize signer and take care of signing - Next
 export type SupportedChain = "0xaa36a7" | "0x2105";
 
 export type ChainConfig = {
   chainId: number;
   backendApi: string;
-  contractAddress: string;
   publicRPCUrl: string;
-  apiKey: string;
+  contractAddress: string;
 };
 
 export type HeartBitConfig = {

@@ -1,4 +1,4 @@
-import { HEART_MINTER_CONFIG } from "./constants";
+import { HEART_BIT_CONFIG } from "./constants";
 import type {
   TotalHeartBitCountArgs,
   HeartBitCoreOptions,
@@ -19,7 +19,6 @@ export class HeartBitCore {
   #backendApi: string;
   #contract: Contract;
   #rpcProvider: JsonRpcProvider;
-  #apiKey: string;
 
   constructor(opts: HeartBitCoreOptions) {
     const { chain, rpcUrl } = opts;
@@ -27,31 +26,37 @@ export class HeartBitCore {
     if (!chain) throw new Error("Chain is required");
 
     this.chain = chain;
-    this.#backendApi = HEART_MINTER_CONFIG[chain].backendApi;
+    this.#backendApi = HEART_BIT_CONFIG[chain].backendApi;
     this.#rpcProvider = new JRPCProvider(
-      rpcUrl || HEART_MINTER_CONFIG[chain].publicRPCUrl
+      rpcUrl || HEART_BIT_CONFIG[chain].publicRPCUrl
     );
     this.#contract = getMinterContract(chain, this.#rpcProvider);
-    this.#apiKey = HEART_MINTER_CONFIG[chain].apiKey;
   }
 
   async mintHeartBit(opts: MintHeartBitArgs) {
-    await fetch(this.#backendApi, {
+    const response = await fetch(this.#backendApi, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": this.#apiKey,
       },
       body: JSON.stringify({
         ...opts,
       }),
     });
+
+    const data = await response.json();
+    return data;
   }
 
-  async getTotalHeartBitCountByHash(opts: TotalHeartBitCountArgs) {
+  async getTotalHeartBitCountByHash(
+    opts: TotalHeartBitCountArgs
+  ): Promise<number> {
     const { hash } = opts;
     const tokenId = await this.getHeartbitHashTokenMap(hash);
-    return await this.#contract.totalSupply?.(tokenId);
+
+    const balance = await this.#contract.totalSupply?.(tokenId);
+
+    return parseInt(balance);
   }
 
   async getHeartbitHashTokenMap(url: string) {
@@ -60,7 +65,7 @@ export class HeartBitCore {
     return hashTokenMap;
   }
 
-  async getHeartBitByUser(opts: HeartBitCountByUserArgs) {
+  async getHeartBitByUser(opts: HeartBitCountByUserArgs): Promise<number> {
     const { address, hash } = opts;
     const tokenId = await this.getHeartbitHashTokenMap(hash);
 
