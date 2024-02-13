@@ -23,11 +23,361 @@ This repository contain two packages:
 
 ### Heartbit Core
 - package : [@fileverse/heartbit-core](https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core)
-- example usage : [Heartbit core sdk example](https://codesandbox.io/p/devbox/heartbit-core-sdk-example-37h7hw?file=%2Fsrc%2Futils.ts%3A32%2C13&layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522clsely1nz00073b6ssujbp7k5%2522%252C%2522sizes%2522%253A%255B77.36842105263158%252C22.631578947368425%255D%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522id%2522%253A%2522clsely1ny00023b6svcbu8ojv%2522%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522SHELLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522id%2522%253A%2522clsely1nz00043b6snhe0szms%2522%257D%252C%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522id%2522%253A%2522clsemc3s000ip3b6sr1xh3wnp%2522%257D%255D%252C%2522sizes%2522%253A%255B50%252C50%255D%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522id%2522%253A%2522clsely1nz00063b6sk85x6db8%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B59.33294089315817%252C40.66705910684183%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522clsely1ny00023b6svcbu8ojv%2522%253A%257B%2522id%2522%253A%2522clsely1ny00023b6svcbu8ojv%2522%252C%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522clsiubuk700023b6natj9oaxu%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522FILE%2522%252C%2522initialSelections%2522%253A%255B%257B%2522startLineNumber%2522%253A32%252C%2522startColumn%2522%253A13%252C%2522endLineNumber%2522%253A32%252C%2522endColumn%2522%253A13%257D%255D%252C%2522filepath%2522%253A%2522%252Fsrc%252Futils.ts%2522%252C%2522state%2522%253A%2522IDLE%2522%257D%255D%252C%2522activeTabId%2522%253A%2522clsiubuk700023b6natj9oaxu%2522%257D%252C%2522clsely1nz00063b6sk85x6db8%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522clsely1nz00053b6sjbf00ii4%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522TASK_PORT%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522port%2522%253A5173%252C%2522path%2522%253A%2522%252F%2522%257D%255D%252C%2522id%2522%253A%2522clsely1nz00063b6sk85x6db8%2522%252C%2522activeTabId%2522%253A%2522clsely1nz00053b6sjbf00ii4%2522%257D%252C%2522clsely1nz00043b6snhe0szms%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522clsely1nz00033b6s9ht49fgg%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522dev%2522%257D%255D%252C%2522id%2522%253A%2522clsely1nz00043b6snhe0szms%2522%252C%2522activeTabId%2522%253A%2522clsely1nz00033b6s9ht49fgg%2522%257D%252C%2522clsemc3s000ip3b6sr1xh3wnp%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522clsema2k900gp3b6s04u11cgu%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522TERMINAL%2522%252C%2522shellId%2522%253A%2522clsemc47000ssdbip5h7eff48%2522%257D%255D%252C%2522id%2522%253A%2522clsemc3s000ip3b6sr1xh3wnp%2522%252C%2522activeTabId%2522%253A%2522clsema2k900gp3b6s04u11cgu%2522%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showShells%2522%253Atrue%252C%2522showSidebar%2522%253Atrue%252C%2522sidebarPanelSize%2522%253A15%257D
-)
+- example usage : [Heartbit core sdk example](https://codesandbox.io/p/devbox/heartbit-core-sdk-example-37h7hw)
 
 ### Heartbit React
 - package : [@fileverse/heartbit-react](https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-react)
-- example usage : [Heartbit React example](https://codesandbox.io/p/devbox/hearbit-example-cxr375?layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522clseepgi700073b6mltvd3sxn%2522%252C%2522sizes%2522%253A%255B70%252C30%255D%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522id%2522%253A%2522clseepgi600023b6mj0oacdqz%2522%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522SHELLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522id%2522%253A%2522clseepgi700043b6mgyl3snzn%2522%257D%252C%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522id%2522%253A%2522clseepx1j007p3b6m7e97uig7%2522%257D%255D%252C%2522sizes%2522%253A%255B40%252C60%255D%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522id%2522%253A%2522clseepgi700063b6mcvfka969%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B47.66327566718394%252C52.33672433281606%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522clseepgi600023b6mj0oacdqz%2522%253A%257B%2522id%2522%253A%2522clseepgi600023b6mj0oacdqz%2522%252C%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522clseh220y00023b6m20x8gv6u%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522FILE%2522%252C%2522initialSelections%2522%253A%255B%257B%2522startLineNumber%2522%253A15%252C%2522startColumn%2522%253A1%252C%2522endLineNumber%2522%253A15%252C%2522endColumn%2522%253A1%257D%255D%252C%2522filepath%2522%253A%2522%252Fsrc%252FApp.tsx%2522%252C%2522state%2522%253A%2522IDLE%2522%257D%255D%252C%2522activeTabId%2522%253A%2522clseh220y00023b6m20x8gv6u%2522%257D%252C%2522clseepgi700063b6mcvfka969%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522clseepgi700053b6mn6pu8dyk%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522TASK_PORT%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522port%2522%253A5173%252C%2522path%2522%253A%2522%252F%2522%257D%255D%252C%2522id%2522%253A%2522clseepgi700063b6mcvfka969%2522%252C%2522activeTabId%2522%253A%2522clseepgi700053b6mn6pu8dyk%2522%257D%252C%2522clseepgi700043b6mgyl3snzn%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522clseepgi700033b6meiaaux3v%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522dev%2522%257D%255D%252C%2522id%2522%253A%2522clseepgi700043b6mgyl3snzn%2522%252C%2522activeTabId%2522%253A%2522clseepgi700033b6meiaaux3v%2522%257D%252C%2522clseepx1j007p3b6m7e97uig7%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522clseeppp200733b6mxg1g9lzr%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522TERMINAL%2522%252C%2522shellId%2522%253A%2522clseepxbz00nwdjip6ffy7xop%2522%257D%255D%252C%2522id%2522%253A%2522clseepx1j007p3b6m7e97uig7%2522%252C%2522activeTabId%2522%253A%2522clseeppp200733b6mxg1g9lzr%2522%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showShells%2522%253Atrue%252C%2522showSidebar%2522%253Atrue%252C%2522sidebarPanelSize%2522%253A15%257D)
+- example usage : [Heartbit React example](https://codesandbox.io/p/devbox/hearbit-example-cxr375)
+
+
+
+## Quick Start
+As a Quick start - one will have to start with the heartbit-react package which exports the HeartBit component, which is a plug and play integration of the heartbit sdk.
+
+
+
+### Heartbit React
+
+#### Installation
+
+ You can install using `npm` or `yarn`
+
+ ```javascript
+npm install --save @fileverse/heartbit-react
+
+//or
+
+yarn add @fileverse/heartbit-react
+```
+
+#### Import packages
+import the core component of the package `HeartBit` 
+```javascript
+import { HeartBit, type SupportedChain } from "@fileverse/heartbit-react";
+```
+
+We will be using `SIWE` package to prepare and sign the user message. the code below imports the package after installing it
+
+```javascript
+import { SiweMessage } from "siwe";
+```
+
+Let's import the following from `ethers`
+
+```javascript
+import { BrowserProvider, keccak256, toUtf8Bytes } from "ethers";
+```
+
+You can use any wallet provider of your choice e.g wagmi, but we will be going with the `BrowserProvider` as a quick setup.
+The `keccak256` util function will be used to generate the hash for the tokenID of the NFT that will be transferred to the user and `toUtf8Bytes` will be used to encode the string that will be used as the tokenID
+
+
+#### Integrate Heartbit functionality to your component
+
+First of all you want to setup and define the wallet providers and create a react component that will render the `HeartBit` UI and functionalities. we will be using `BrowserProvider` from `ethers` as our provider
+
+```javascript
+const MyApp = () => {
+  const provider = new BrowserProvider((window as any).ethereum);
+  return <HeartBit
+          coreOptions={coreOptions}
+          getSignatureArgsHook={signMessageHook}
+          hash={hash}
+          />
+}
+```
+
+Let's configure the `heartbit-core` through the `HeartBit` component by passing the `coreOptions` as props which is an object of type 
+```javascript
+type SupportedChain = "0xaa36a7" | "0x2105"; // currently we only support base and sepolia
+interface HeartBitCoreOptions {
+  chain: SupportedChain;
+  rpcUrl?: string;
+}
+```
+
+Now let's update our componenent to add the configuration
+```javascript
+
+const MyApp = () => {
+  const provider = new BrowserProvider((window as any).ethereum);
+  const coreOptions = {
+    chain: "0xaa36a7" as SupportedChain
+  }
+
+  return <HeartBit
+          coreOptions={coreOptions}
+          getSignatureArgsHook={signMessageHook}
+          hash={hash}
+        />;
+}
+```
+
+The `HeartBit` component expects the `getSignatureArgsHook` as props, it calls it internally to get the `message,
+      signature` and optionally the function can return an `onMintCallback` which will be called after mint is completed
+
+Update your component to define the `getSignatureArgsHook` 
+
+```javascript
+const MyApp = () => {
+  const provider = new BrowserProvider((window as any).ethereum);
+  const coreOptions = {
+    chain: "0xaa36a7" as SupportedChain
+  }
+
+  const getSignatureArgsHook = async () => {
+    const signer = await provider.getSigner()
+    const address = await signer.getAddress();
+
+    const siweMessage = new SiweMessage({
+      domain: window.location.host,
+      address,
+      statement: "Hello World!",
+      uri: window.location.origin,
+      version: "1",
+    });
+
+    const message = siweMessage.prepareMessage();
+    const signature = await signer.signMessage(message);
+
+    return {
+      message,
+      signature,
+      onMintCallback: () => {
+        console.log("Minted!")
+      }
+    };
+  };
+
+  return <HeartBit
+          coreOptions={coreOptions}
+          getSignatureArgsHook={getSignatureArgsHook }
+          hash={hash}
+        />;
+}
+
+```
+
+Now let's define `hash` which is a keccak256 hash that will be used for generating the tokenId on the smart contract.
+
+```javascript
+const MyApp = () => {
+  const provider = new BrowserProvider((window as any).ethereum);
+  const coreOptions = {
+    chain: "0xaa36a7" as SupportedChain
+  }
+
+  const getSignatureArgsHook = async () => {
+    const signer = await provider.getSigner()
+    const address = await signer.getAddress();
+
+    const siweMessage = new SiweMessage({
+      domain: window.location.host,
+      address,
+      statement: "Hello World!",
+      uri: window.location.origin,
+      version: "1",
+    });
+
+    const message = siweMessage.prepareMessage();
+    const signature = await signer.signMessage(message);
+
+    return {
+      message,
+      signature,
+      onMintCallback: () => {
+        console.log("Minted!")
+      }
+    };
+  };
+
+ const hash = keccak256(toUtf8Bytes("MY_APP_TOKEN"));
+
+  return <HeartBit
+          coreOptions={coreOptions}
+          getSignatureArgsHook={getSignatureArgsHook }
+          hash={hash}
+        />;
+}
+
+```
+
+At this point you should have  a heart on your screen and when you click and hold it for long it should fill up and once released some nfts related to the amount of time spent on clicking the button will be minted to the user
+
+
+
+
+#### Customization
+
+You can basically attach the heartsbit functionality to any UI and not restricted to the love icon. To achieve this the `heartbit-react` package exports  `HeartBitProvider` and `useHeartBit`.  The `HeartBitProvider` will be used to configure the core package with the `coreOptions` it requires. 
+
+Let import and configure the `HeartBitProvider`  and wrap it around our custom component
+
+
+```javascript
+import { useState, useEffect } from 'react'
+import { HeartBitProvider } from "@fileverse/heartbit-react"
+
+const MyApp = () => {
+    const coreOptions = {
+        chain: "0xaa36a7" as SupportedChain
+    }
+    return (
+         <HeartBitProvider coreOptions={coreOptions}>
+            <CustomHeartBit />
+         </HeartBitProvider>
+         )
+
+```
+
+The custom componenent in our case `CustomHeartBit`, should ideally hold the logics  and make use of the `useHeartBit` to implement the core functionalities of the package. below is and example code
+
+```javascript
+import { useHeartBit } from "@fileverse/heartbit-react"
+const CustomHearBit = () => {
+     const { mintHeartBit, getTotalHeartMintsByUser, getTotalHeartBitByHash } = useHeartBit()
+     const [startTime, setStartTime] = useState<number | null>(null) // should be in seconds
+
+     const address = '0x...someaddress'
+     const hash = '0x....somehash'
+     useEffect(() => {
+        const fetchBalances = async () => {
+            const totalMintsByHash = await getTotalHeartBitByHash({ hash }); // Total Supply for a hash
+            const totalMintsByUser = await getTotalHeartMintsByUser({ address, hash }); // Total mints for a user by hash
+
+            console.log({ totalMintsByHash, totalMintsByUser})
+        }
+        fetchBalances()
+     }, []);
+
+     const onMouseDown = () => {
+        setStartTime(Math.floor(Date.now() / 1000))
+     }
+
+     const onMouseUp = async () => {
+         const endTime = Math.floor(Date.now() / 1000);
+         await mintHeartBit({
+            startTime,
+            endTime,
+            hash, // keccak256 hash of a string
+            message, // raw message that was signed
+            signature, // signed message
+         })
+     }
+
+     return <button onMouseUp={onMouseUp} onMouseDown={onMouseDown}>Hello World</button>
+}
+
+```
+
+The  `heartbit-react` additionally exports the heart bit UI which independent of the functionalities. below is a code example 
+
+```javascript
+import { HeartBitUI } from "@fileverse/heartbit-react";
+
+export const MyApp = () => {
+  return <HeartBitUI />;
+};
+
+```
+
+it takes the follwing as prop which can be use to implement and customize the heartbit functionality
+
+```javascript
+interface HeartBitUIProps {
+  onMouseUp?: (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => void;
+  onMouseDown?: (
+    event: React.MouseEvent<HTMLCanvasElement, MouseEvent>
+  ) => void;
+  scale?: number; // Default Value = 3. size of the canvas, min dimensions width = 13, height = 12. eg: scale = 3 => width: 39px height: 36px
+  defaultFillPos?: DefaultFillRange; //Default Value = 2. default position of fill in heart on load, onMouseDown the fill will always start from 0 not from defaultFillPos.
+  startFillPos?: TotalFillRange; // Default Value = 0. start fill position in heart on load, onMouseDown the fill will resume from this position.
+  isDisabled?: boolean; // Default Value = false. disables all actions.
+  disableBeatingAnimation?: boolean; // Default Value = false. disables heat beating animation
+  fillInterval?: number; // Default Value = 750. Interval at which the heart fills in milliseconds
+}
+type TotalFillRange = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+
+type DefaultFillRange = 1 | 2 | 3 | 4 | 5;
+
+```
+
+### Heartbit Core
+You can make use of the `heartbit-core` if you are looking at having this functionality on a different browser framework other than react.
+Lets walk through the process
+
+#### Installation
+
+ You can install using `npm` or `yarn`
+
+ ```javascript
+npm install --save @fileverse/heartbit-core
+
+//or
+
+yarn add @fileverse/heartbit-core
+```
+
+#### Import  and use package
+ ```javascript
+import { HeartBitCore } from "@fileverse/heartbit-core";
+```
+
+#### Configure package
+
+```javascript
+const core = new HeartBitCore({
+  chain: "0xaa36a7",
+});
+
+```
+
+Now let write a code that utilizes the `HeartBitCore` to mint nft to a particular user, we are going to use a pre-generated `hash` and `signature`, to avoid making the tutorial complex
+
+```javascript
+  const message = "Hello World!";
+  const signature = "0x...signed message";
+  const startTime = 1706898250;
+  const endTime = 1706898251;
+  const hash = "Hello World"; // keccak256 hash of a string
+
+  await core.mintHeartBit({
+    message,
+    signature,
+    startTime,
+    endTime,
+    hash,
+  });
+
+
+```
+
+we can get the total supply of a particular nft by using the `getTotalHeartBitCountByHash` 
+```javascript
+  const totalSupply = await core.getTotalHeartBitCountByHash({ hash });
+```
+and to get how many nfts a user has minted you simple call  `getHeartBitByUser` 
+
+```javascript
+  // Get Total Mints By User
+  const walletAddress = "0x...ethaddress";
+  const mintsByUser = await core.getHeartBitByUser({
+    hash,
+    address,
+  });
+```
+
+
+
+
+
+
+# Troubleshooting
+
+# FAQs
+- Who pays the gas fees
+  - Fileverse relayer
+
+
 
 
