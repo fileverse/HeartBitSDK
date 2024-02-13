@@ -59,7 +59,11 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
       [defaultFillPos, scale, startFillPos]
     );
 
-    const onMousedown = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const onMousedown = (
+      e:
+        | React.MouseEvent<HTMLCanvasElement>
+        | React.TouchEvent<HTMLCanvasElement>
+    ) => {
       if (!canvasContext || currentFillIdx >= 10 || isDisabled) return;
 
       if (onMouseDown && typeof onMouseDown === "function") onMouseDown(e);
@@ -98,6 +102,13 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
       setCurrentFillIdx(startFillPos);
     }, [canvasContext, defaultFillPos, scale, startFillPos]);
 
+    useEffect(() => {
+      if (!isDisabled) return;
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    }, [isDisabled]);
+
     useImperativeHandle(
       ref,
       () => {
@@ -108,7 +119,11 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
       [onReset]
     );
 
-    const onMouseup = async (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const onMouseup = async (
+      e:
+        | React.MouseEvent<HTMLCanvasElement>
+        | React.TouchEvent<HTMLCanvasElement>
+    ) => {
       if (isDisabled) return;
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -121,6 +136,8 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
       <canvas
         onMouseDown={onMousedown}
         onMouseUp={onMouseup}
+        onTouchStart={onMousedown}
+        onTouchEnd={onMouseup}
         className={clx(styles.heart, {
           [styles.disabled]: isDisabled || disableBeatingAnimation,
         })}

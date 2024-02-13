@@ -2,6 +2,11 @@
   text-align: center;
 }
 .heart {
+  -webkit-touch-callout: none; /* Safari */
+  -webkit-user-select: none; /* Chrome */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
   display: inline-block;
   cursor: pointer;
   animation: scale-up-down-large 3s infinite;
