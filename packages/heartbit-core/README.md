@@ -1,8 +1,16 @@
-# @fileverse/heartbit-core
+# Heartbit Core
 
-### Installation
 
-```
+# Introduction
+This is the basis of the heartbit functionality. it exposes the APIs that are used to implement the heartbit functionality
+
+# Getting Started
+
+## Installation
+
+You can install using `npm` or `yarn`
+
+ ```javascript
 npm install --save @fileverse/heartbit-core
 
 //or
@@ -10,45 +18,21 @@ npm install --save @fileverse/heartbit-core
 yarn add @fileverse/heartbit-core
 ```
 
-## HeartBitCore
-
-### Interface
-
-```javascript
-type SupportedChain = "0xaa36a7" | "0x2105";
-
-interface HeartBitCoreOptions {
-  chain: SupportedChain;
-  rpcUrl?: string;
-}
-
-interface TotalHeartBitCountArgs {
-  hash: string; // keccak256 hash of a string
-}
-
-interface HeartBitCountByUserArgs {
-  hash: string; // keccak256 hash of a string
-  address: string; // ethereum wallet address
-}
-
-interface MintHeartBitArgs {
-  message: string;
-  signature: string;
-  startTime: number; // in seconds
-  endTime: number; // in seconds
-  hash: string; // keccak256 hash of a string
-}
-```
-
-### Usage
-
-```javascript
+## Import and use the package
+ ```javascript
 import { HeartBitCore } from "@fileverse/heartbit-core";
-
+```
+## Configure package
+the sdk makes use of `coreOption` to configure the network at which the user will be interacting with.
+ ```javascript
 const coreSDK = new HeartBitCore({
   chain: "0xaa36a7",
 });
+```
 
+
+Below is a minimal example of how you might want to use the sdk
+```javascript
 async function main() {
   const message = "Hello World!";
   const signature = "0x...signed message";
@@ -77,4 +61,6 @@ async function main() {
     address,
   });
 }
+
 ```
+[Here](https://codesandbox.io/p/devbox/heartbit-core-sdk-example-37h7hw) is a link to a working example
