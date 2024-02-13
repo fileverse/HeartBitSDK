@@ -1,31 +1,34 @@
-# Heartbit React
+# HeartBit React
 
 ## Introduction
-A plug and play integration of the heartbit sdk. it is a wrapper around [HeartBitCore]((https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core))
+
+A plug-and-play integration of the HeartBit SDK, which is a wrapper around [HeartBitCore](https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core).
 
 ## Getting Started
 
 ### Installation
 
- You can install using `npm` or `yarn`
+You can install using `npm` or `yarn`:
 
- ```javascript
+```javascript
 npm install --save @fileverse/heartbit-react
 
-//or
+// or
 
 yarn add @fileverse/heartbit-react
 ```
 
-### Import packages
-import the core component of the package `HeartBit` 
+### Import Packages
+
+Import the core component of the package `HeartBit`:
+
 ```javascript
 import { HeartBit } from "@fileverse/heartbit-react";
 ```
 
-### Integrate Heartbit functionality to your component
+### Integrate HeartBit Functionality
 
-First of all, you want to set up your wallet providers, for this example we will be using the `BrowserProvider` from `ethers` as our provider and we will create a react component that will render `HeartBit` and we are going to configure the network by passing the `coreOption` as props to it. it requires the `getSignatureArgsHook` as props as well, it calls it internally to get the `message, signature` and optionally an `onMintCallback` which is a function that will be called after mint is completed. we would also define `hash`  which is a keccak256 hash that will be used for generating the tokenId on the smart contract and we will use `SIWE` for generating the `message` and `signature`.  The code blow should do the trick
+First of all, you want to set up your wallet providers. For this example, we will be using the `BrowserProvider` from `ethers` as our provider. We will create a React component that will render `HeartBit`, and we are going to configure the network by passing the `coreOption` as props to it. It requires the `getSignatureArgsHook` as props as well, which it calls internally to get the `message`, `signature`, and optionally an `onMintCallback`, a function that will be called after mint is completed. We would also define `hash` which is a keccak256 hash that will be used for generating the tokenId on the smart contract, and we will use `SIWE` for generating the `message` and `signature`. The code below should do the trick:
 
 ```javascript
 const MyApp = () => {
@@ -62,21 +65,22 @@ const MyApp = () => {
 
   return <HeartBit
           coreOptions={coreOptions}
-          getSignatureArgsHook={getSignatureArgsHook }
+          getSignatureArgsHook={getSignatureArgsHook}
           hash={hash}
         />;
 }
-
 ```
-if all the process was successful you shoulde see a heart on your screen and when you click and hold it for long it should fill up and once released some nfts related to the amount of time spent on clicking the button will be minted to the user
 
+If all the process was successful, you should see a heart on your screen, and when you click and hold it for long, it should fill up. Once released, some NFTs related to the amount of time spent on clicking the button will be minted to the user.
 
+[Here](<(https://codesandbox.io/p/devbox/hearbit-example-cxr375)>) is a working example using HeartBit.
 
 ## Customization
 
-You can basically attach the heartsbit functionality to any UI and not get limited to use the love icon. To achieve this the `heartbit-react` package exports  `HeartBitProvider` and `useHeartBit`.  The `HeartBitProvider` is used to configure the core package with the `coreOptions` and `useHeartBit` is expose the core functions of the heartbit sdk which we can call in a react component - note that it can only be used in the context of `HeartBitProvider`.
+You can attach the HeartBit functionality to any UI component and instead of being restricted by our default heart icon. To achieve this, the `heartbit-react` package exports `HeartBitProvider` and `useHeartBit`. The `HeartBitProvider` is used to configure the core package with the `coreOptions`, and `useHeartBit` exposes the core functions of the HeartBit SDK, which we can call in a React component. Note that it can only be used in the context of `HeartBitProvider`.
 
 ### Example Usage
+
 ```javascript
 import { useState, useEffect } from 'react'
 import { HeartBitProvider } from "@fileverse/heartbit-react"
@@ -123,8 +127,6 @@ const CustomHearBit = () => {
 
      return <button onMouseUp={onMouseUp} onMouseDown={onMouseDown}>Hello World</button>
 }
-
 ```
-Here is a working example on [HeartBit](https://codesandbox.io/p/devbox/hearbit-example-cxr375)
 
-[Here](https://codesandbox.io/p/devbox/custom-heartbit-example-p6f7gr)  is a working example on using the `HeartBitProvider` and `useHeartBit` 
+[Here](https://codesandbox.io/p/devbox/custom-heartbit-example-p6f7gr) is a working example using the `HeartBitProvider` and `useHeartBit`.
