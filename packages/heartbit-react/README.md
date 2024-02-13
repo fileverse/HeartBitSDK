@@ -28,7 +28,7 @@ import { HeartBit } from "@fileverse/heartbit-react";
 
 ### Integrate HeartBit Functionality
 
-First of all, you want to set up your wallet providers. For this example, we will be using the `BrowserProvider` from `ethers` as our provider. We will create a React component that will render `HeartBit`, and we are going to configure the network by passing the `coreOption` as props to it. It requires the `getSignatureArgsHook` as props as well, which it calls internally to get the `message`, `signature`, and optionally an `onMintCallback`, a function that will be called after mint is completed. We would also define `hash` which is a keccak256 hash that will be used for generating the tokenId on the smart contract, and we will use `SIWE` for generating the `message` and `signature`. The code below should do the trick:
+First of all, you want to set up your wallet provider. For this example, we're using the `BrowserProvider` from `ethers` as our provider. We can create a React component that will render `HeartBit`, and we configure the network by passing the `coreOption` as props to it. It requires the `getSignatureArgsHook` as props as well, which it calls internally to get the `message`, `signature`, and optionally an `onMintCallback`, a function that will be called after mint is completed. We also define `hash` which is a keccak256 hash that is used to generate the tokenId on the smart contract, and we use `SIWE` for generating the `message` and `signature`. The code below should do the trick:
 
 ```javascript
 const MyApp = () => {
@@ -71,7 +71,7 @@ const MyApp = () => {
 }
 ```
 
-If all the process was successful, you should see a heart on your screen, and when you click and hold it for long, it should fill up. Once released, some NFTs related to the amount of time spent on clicking the button will be minted to the user.
+If the process was successful, you should see a heart on your screen, and when you click and hold it for long, it should fill up. Once released, some ERC1155 tokens related to the amount of time spent on clicking the button will be minted to the user address.
 
 [Here](<(https://codesandbox.io/p/devbox/hearbit-example-cxr375)>) is a working example using HeartBit.
 
