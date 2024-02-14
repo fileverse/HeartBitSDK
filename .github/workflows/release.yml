@@ -20,8 +20,8 @@ jobs:
           version: 8.12.0
 
       - name: Install dependencies and build 🔧
-        run: npm ci && npm run build
+        run: pnpm ci && pnpm run build
       - name: Publish package on NPM 📦
-        run: npm publish
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
