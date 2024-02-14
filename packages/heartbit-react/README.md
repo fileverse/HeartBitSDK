@@ -73,9 +73,9 @@ const MyApp = () => {
 
 If all the process was successful, you should see a heart on your screen, and when you click and hold it for long, it should fill up. Once released, some NFTs related to the amount of time spent on clicking the button will be minted to the user.
 
-[Here](<(https://codesandbox.io/p/devbox/hearbit-example-cxr375)>) is a working example using HeartBit.
+[Here](https://codesandbox.io/p/devbox/hearbit-example-cxr375) is a working example using HeartBit.
 
-## Customization
+## Customisation
 
 You can attach the HeartBit functionality to any UI component and instead of being restricted by our default heart icon. To achieve this, the `heartbit-react` package exports `HeartBitProvider` and `useHeartBit`. The `HeartBitProvider` is used to configure the core package with the `coreOptions`, and `useHeartBit` exposes the core functions of the HeartBit SDK, which we can call in a React component. Note that it can only be used in the context of `HeartBitProvider`.
 
@@ -128,6 +128,8 @@ const CustomHearBit = () => {
      return <button onMouseUp={onMouseUp} onMouseDown={onMouseDown}>Hello World</button>
 }
 ```
+[Here](https://codesandbox.io/p/devbox/custom-heartbit-example-p6f7gr) is a working example using the `HeartBitProvider` and `useHeartBit`.
+
 
 ### Interface
 ```javascript
