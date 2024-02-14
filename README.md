@@ -45,7 +45,8 @@ The HeartMint smart contract is a ERC1155-based contract on the Ethereum blockch
 #### Relevant Links
 
 - [HeartBit smart contract](https://github.com/fileverse/fileverse-smartcontracts-v2/blob/feat/base/contracts/heartbit.sol)
-- [Etherscan](https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core)
+- [Sepolia etherscan link](https://sepolia.etherscan.io/address/0x47E3fd3331a89822A980DA7Fe51592bD6f900FE6)
+- [Base etherscan link](https://basescan.org/address/0x5290B2e25c98015cE80b43C5c5CfBd01aA372E04)
 
 ## Contributing
 
