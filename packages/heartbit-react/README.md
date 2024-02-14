@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A plug-and-play integration of the HeartBit SDK, which is a wrapper around [HeartBitCore](https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core).
+A plug-and-play integration of the [HeartBit SDK](https://github.com/fileverse/HeartBitSDK), which is a wrapper around [HeartBitCore](https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core).
 
 ## Getting Started
 
