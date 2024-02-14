@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is the core of the HeartBit functionality. It exposes the APIs that are crucial for implementing HeartBit functionalities.
+This is the core of the [HeartBit](https://github.com/fileverse/HeartBitSDK) functionality. It exposes the APIs that are crucial for implementing HeartBit functionalities.
 
 ## Getting Started
 
@@ -98,3 +98,5 @@ interface MintHeartBitArgs {
   hash: string; // keccak256 hash of a string
 }
 ```
+
+Checkout [HeartBit React](https://github.com/fileverse/HeartBitSDK/edit/main/packages/heartbit-react) which uses the `HeartBitCore` to integrate HeartBit functionality in a react app
