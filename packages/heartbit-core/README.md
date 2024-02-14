@@ -73,4 +73,28 @@ async function main() {
 
 ### Interfaces
 
-//TODO
+```javascript
+type SupportedChain = "0xaa36a7" | "0x2105";
+
+interface HeartBitCoreOptions {
+  chain: SupportedChain;
+  rpcUrl?: string;
+}
+
+interface TotalHeartBitCountArgs {
+  hash: string; // keccak256 hash of a string
+}
+
+interface HeartBitCountByUserArgs {
+  hash: string; // keccak256 hash of a string
+  address: string; // ethereum wallet address
+}
+
+interface MintHeartBitArgs {
+  message: string;
+  signature: string;
+  startTime: number; // in seconds
+  endTime: number; // in seconds
+  hash: string; // keccak256 hash of a string
+}
+```
