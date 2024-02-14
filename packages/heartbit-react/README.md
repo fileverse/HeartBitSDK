@@ -61,7 +61,7 @@ const MyApp = () => {
     };
   };
 
- const hash = keccak256(toUtf8Bytes("MY_APP_TOKEN"));
+ const hash = keccak256(toUtf8Bytes("window.location.href")); // Arweave or IPFS hash
 
   return <HeartBit
           coreOptions={coreOptions}
@@ -99,7 +99,7 @@ const CustomHearBit = () => {
      const [startTime, setStartTime] = useState<number | null>(null) // should be in seconds
 
      const address = '0x...someaddress'
-     const hash = '0x....somehash'
+     const hash = '0x....somehash' // This is an identifier for the token, if this hash changes you mint a new token in that case
      useEffect(() => {
         const fetchBalances = async () => {
             const totalMintsByHash = await getTotalHeartBitByHash({ hash }); // Total Supply for a hash
@@ -119,7 +119,7 @@ const CustomHearBit = () => {
          await mintHeartBit({
             startTime,
             endTime,
-            hash, // keccak256 hash of a string
+            hash, // This is an identifier for the token, if this hash changes you mint a new token in that case
             message, // raw message that was signed
             signature, // signed message
          })
@@ -130,3 +130,7 @@ const CustomHearBit = () => {
 ```
 
 [Here](https://codesandbox.io/p/devbox/custom-heartbit-example-p6f7gr) is a working example using the `HeartBitProvider` and `useHeartBit`.
+
+### Interfaces
+
+// TODO
