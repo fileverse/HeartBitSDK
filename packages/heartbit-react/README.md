@@ -140,7 +140,7 @@ interface HeartBitProps
   extends Omit<HeartBitUIProps, "isDisabled" | "startFillPos"> {
   coreOptions: HeartBitCoreOptions;
   getSignatureArgsHook: () => Promise<SignatureArgs>; // this is a required hook, this allows to call sign message operation on the user wallet, must return SignatureArgs
-  hash: string; // keccak256 hash of a string
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
   address?: string; // user wallet address
   showTotalMintsByHash?: boolean; // Default to false, if true will show total mints for a hash to the right of component
   showTotalMintsByUser?: boolean; // Defaults to false, if true will show total mints by a user on a hash to right of the component
@@ -168,7 +168,7 @@ interface MintHeartBitArgs {
   signature: string;
   startTime: number; // in seconds
   endTime: number; // in seconds
-  hash: string; // keccak256 hash of a string
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
 }
 interface IHeartBitContext {
   getTotalHeartMintsByUser: (opts: HeartBitCountByUserArgs) => Promise<number>;
