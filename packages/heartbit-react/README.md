@@ -157,10 +157,10 @@ interface HeartBitProviderProps {
   coreOptions: HeartBitCoreOptions;
 }
 interface TotalHeartBitCountArgs {
-  hash: string; // keccak256 hash of a string
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
 }
 interface HeartBitCountByUserArgs {
-  hash: string; // keccak256 hash of a string
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
   address: string; // ethereum wallet address
 }
 interface MintHeartBitArgs {
