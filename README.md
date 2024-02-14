@@ -63,7 +63,7 @@ Please follow these steps to have your contribution considered by the maintainer
 1. Use the fork and pull model to make your changes. Fork the repo and make your changes in your fork (this is how you can propose changes to the project)
 2. When you're ready with your changes, create a pull request (PR) from your fork back to the original repo.
 3. Fill in the [pull request template](https://github.com/fileverse/HeartBitSDK/blob/main/PULL_REQUEST_TEMPLATE.md) with details about your contribution.
-5. After you submit your pull request, verify that all status checks are passing. If a check is failing, you will need to address the issue.
+4. After you submit your pull request, verify that all status checks are passing. If a check is failing, you will need to address the issue.
 
 **After your pull request is merged**, you can safely delete your branch.
 
