@@ -6,7 +6,14 @@
   "scripts": {
     "build": "pnpm run --r --filter \"./packages/**\" build",
     "build:react": "pnpm --filter heartbit-react build",
-    "build:core": "pnpm --filter heartbit-core build"
+    "build:core": "pnpm --filter heartbit-core build",
+    "changeset": "changeset",
+    "publish:packages": "changeset publish",
+    "version:packages": "changeset version",
+    "publish:react": "pnpm --filter heartbit-react publish",
+    "publish:core": "pnpm --filter heartbit-core publish",
+    "prepublish": "pnpm run build",
+    "publish": "pnpm run prepublish && pnpm run publish:core && pnpm run publish:react"
   },
   "keywords": [
     "heartbitsdk",
@@ -19,5 +26,8 @@
   "devDependencies": {
     "@types/node": "^20.11.6",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.27.1"
   }
 }
