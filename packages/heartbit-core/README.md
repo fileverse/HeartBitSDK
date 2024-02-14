@@ -99,4 +99,4 @@ interface MintHeartBitArgs {
 }
 ```
 
-Checkout [HeartBit React](https://github.com/fileverse/HeartBitSDK/edit/main/packages/heartbit-react) which uses the `HeartBitCore` to integrate HeartBit functionality in a react app
+Checkout [HeartBit React](https://github.com/fileverse/HeartBitSDK/edit/main/packages/heartbit-react) which uses the `HeartBitCore` to integrate HeartBit functionality in a react app.
