@@ -61,7 +61,7 @@ const MyApp = () => {
     };
   };
 
- const hash = keccak256(toUtf8Bytes("window.location.href")); // Arweave or IPFS hash
+ const hash = keccak256(toUtf8Bytes("window.location.href")); // This is an identifier for the token, if this hash changes you mint a new token in that case
 
   return <HeartBit
           coreOptions={coreOptions}
@@ -129,8 +129,50 @@ const CustomHearBit = () => {
 }
 ```
 
-[Here](https://codesandbox.io/p/devbox/custom-heartbit-example-p6f7gr) is a working example using the `HeartBitProvider` and `useHeartBit`.
+### Interface
+```javascript
+interface SignatureArgs {
+  message: string;
+  signature: string;
+  onMintCallback?: () => void; // will be called after NFT minting is done
+}
+interface HeartBitProps
+  extends Omit<HeartBitUIProps, "isDisabled" | "startFillPos"> {
+  coreOptions: HeartBitCoreOptions;
+  getSignatureArgsHook: () => Promise<SignatureArgs>; // this is a required hook, this allows to call sign message operation on the user wallet, must return SignatureArgs
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
+  address?: string; // user wallet address
+  showTotalMintsByHash?: boolean; // Default to false, if true will show total mints for a hash to the right of component
+  showTotalMintsByUser?: boolean; // Defaults to false, if true will show total mints by a user on a hash to right of the component
+}
 
-### Interfaces
 
-// TODO
+type SupportedChain = "0xaa36a7" | "0x2105";
+interface HeartBitCoreOptions {
+  chain: SupportedChain;
+  rpcUrl?: string;
+}
+interface HeartBitProviderProps {
+  children: React.ReactNode;
+  coreOptions: HeartBitCoreOptions;
+}
+interface TotalHeartBitCountArgs {
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
+}
+interface HeartBitCountByUserArgs {
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
+  address: string; // ethereum wallet address
+}
+interface MintHeartBitArgs {
+  message: string;
+  signature: string;
+  startTime: number; // in seconds
+  endTime: number; // in seconds
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
+}
+interface IHeartBitContext {
+  getTotalHeartMintsByUser: (opts: HeartBitCountByUserArgs) => Promise<number>;
+  getTotalHeartBitByHash: (opts: TotalHeartBitCountArgs) => Promise<number>;
+  mintHeartBit: (opts: MintHeartBitArgs) => Promise<void>;
+}
+```
