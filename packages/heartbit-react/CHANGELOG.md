@@ -1,5 +1,11 @@
 # @fileverse/heartbit-react
 
+## 0.0.26
+
+### Patch Changes
+
+- 749ba81: Fix workspace deps issue
+
 ## 1.0.0
 
 ### Major Changes
