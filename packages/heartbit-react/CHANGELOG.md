@@ -1,5 +1,11 @@
 # @fileverse/heartbit-react
 
+## 1.1.0
+
+### Minor Changes
+
+- c1d91d6: version bump
+
 ## 0.0.26
 
 ### Patch Changes
