@@ -28,7 +28,7 @@ importers:
   packages/heartbit-react:
     dependencies:
       '@fileverse/heartbit-core':
-        specifier: workspace:*
+        specifier: ^1.0.0
         version: link:../heartbit-core
       classnames:
         specifier: ^2.5.1
