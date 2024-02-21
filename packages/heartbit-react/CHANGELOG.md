@@ -1,5 +1,11 @@
 # @fileverse/heartbit-react
 
+## 1.2.0
+
+### Minor Changes
+
+- 2a68394: Fixed bug where events where not called on fill complete
+
 ## 1.1.0
 
 ### Minor Changes
