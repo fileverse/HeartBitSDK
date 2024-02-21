@@ -53,3 +53,26 @@ export const getStartFillPosition = (totalMintsByUser: number) => {
   if (totalMintsByUser < 60) return 0;
   return 5;
 };
+
+export const addSelfDestructingEventListener = (
+  element: HTMLElement,
+  event: string,
+  callback: (event: Event) => void
+) => {
+  const handler = (e: Event) => {
+    callback(e);
+    element.removeEventListener(event, handler, true);
+  };
+  element.addEventListener(event, handler, true);
+};
+
+export const disableUpEvents = (element: HTMLElement) => {
+  addSelfDestructingEventListener(element, "mouseup", (e) => {
+    e.stopImmediatePropagation();
+    e.stopPropagation();
+  });
+  addSelfDestructingEventListener(element, "touchend", (e) => {
+    e.stopImmediatePropagation();
+    e.stopPropagation();
+  });
+};

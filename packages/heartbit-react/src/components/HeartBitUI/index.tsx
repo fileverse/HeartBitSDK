@@ -12,7 +12,12 @@ import type {
   InternalHandlerRef,
   TotalFillRange,
 } from "./types";
-import { HEART_CV_HEIGHT, HEART_CV_WIDTH, makeHeartCanvas } from "../../utils";
+import {
+  HEART_CV_HEIGHT,
+  HEART_CV_WIDTH,
+  disableUpEvents,
+  makeHeartCanvas,
+} from "../../utils";
 import clx from "classnames";
 
 const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
@@ -26,9 +31,14 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
       isDisabled = false,
       disableBeatingAnimation = false,
       fillInterval = 750,
+      startFilling = false,
     } = props;
 
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+    const autFillRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+    const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     const [currentFillIdx, setCurrentFillIdx] = useState<TotalFillRange>(0);
 
@@ -53,11 +63,52 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
           fillPosition: startFillPos || defaultFillPos,
           scale,
         });
-
+        canvasRef.current = node;
         setCanvasContext(context);
       },
       [defaultFillPos, scale, startFillPos]
     );
+
+    const autoFillHeart = useCallback(() => {
+      if (!canvasContext || currentFillIdx >= 10 || !startFilling) return;
+
+      let idx = currentFillIdx;
+
+      autFillRef.current = setInterval(() => {
+        if (idx >= 10) {
+          if (onMouseUp && typeof onMouseUp === "function") {
+            if (canvasRef.current) disableUpEvents(canvasRef.current);
+            onMouseUp();
+          }
+          clearInterval(autFillRef.current as ReturnType<typeof setInterval>);
+          return;
+        }
+        canvasContext.reset();
+        makeHeartCanvas({
+          canvasContext,
+          fillPosition: idx + 1,
+          scale,
+        });
+        if (idx < 11) idx = idx + 1;
+
+        setCurrentFillIdx(idx);
+      }, fillInterval);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [canvasContext, fillInterval, scale, startFilling]);
+
+    useEffect(() => {
+      const cleanup = () => {
+        if (autFillRef.current)
+          clearInterval(autFillRef.current as ReturnType<typeof setInterval>);
+      };
+
+      if (startFilling) autoFillHeart();
+      else cleanup();
+
+      return () => {
+        cleanup();
+      };
+    }, [autoFillHeart, startFilling]);
 
     const onMousedown = (
       e:
@@ -71,6 +122,10 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
       let idx = currentFillIdx;
       intervalRef.current = setInterval(() => {
         if (idx >= 10) {
+          if (onMouseUp && typeof onMouseUp === "function") {
+            if (canvasRef.current) disableUpEvents(canvasRef.current);
+            onMouseUp();
+          }
           clearInterval(intervalRef.current as ReturnType<typeof setInterval>);
           return;
         }
@@ -81,7 +136,7 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
           scale,
         });
 
-        if (idx < 10) idx += 1;
+        if (idx < 11) idx += 1;
 
         setCurrentFillIdx(idx);
       }, fillInterval);
@@ -96,8 +151,6 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
         fillPosition: startFillPos || defaultFillPos,
         scale,
       });
-
-      setCanvasContext(canvasContext);
 
       setCurrentFillIdx(startFillPos);
     }, [canvasContext, defaultFillPos, scale, startFillPos]);
@@ -138,6 +191,7 @@ const HeartBitUI = forwardRef<InternalHandlerRef, HeartBitUIProps>(
         onMouseUp={onMouseup}
         onTouchStart={onMousedown}
         onTouchEnd={onMouseup}
+        onContextMenu={(e) => e.preventDefault()}
         className={clx(styles.heart, {
           [styles.disabled]: isDisabled || disableBeatingAnimation,
         })}
