@@ -1,4 +1,4 @@
-export type SupportedChain = "0xaa36a7" | "0x2105";
+export type SupportedChain = "0xaa36a7" | "0x2105" | "0x64";
 
 export type ChainConfig = {
   chainId: number;

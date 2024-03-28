@@ -3,6 +3,7 @@ import type { HeartBitConfig } from "../types/index.js";
 export const PUBLIC_RPC_URL_MAP = {
   sepolia: "https://rpc.ankr.com/eth_sepolia",
   base: "https://rpc.ankr.com/base",
+  gnosis: "https://rpc.ankr.com/gnosis"
 };
 
 export const HEART_BIT_CONFIG: HeartBitConfig = {
@@ -17,6 +18,12 @@ export const HEART_BIT_CONFIG: HeartBitConfig = {
     backendApi: "https://base-heartbit.fileverse.io/signed-mint",
     contractAddress: "0x5290B2e25c98015cE80b43C5c5CfBd01aA372E04",
     publicRPCUrl: PUBLIC_RPC_URL_MAP.base,
+  },
+  "0x64": {
+    chainId: 100,
+    backendApi: "https://base-heartbit.fileverse.io/signed-mint",
+    contractAddress: "0x5290B2e25c98015cE80b43C5c5CfBd01aA372E04",
+    publicRPCUrl: PUBLIC_RPC_URL_MAP.gnosis,
   },
 };
 

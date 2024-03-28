@@ -74,7 +74,7 @@ async function main() {
 ### Interfaces
 
 ```javascript
-type SupportedChain = "0xaa36a7" | "0x2105";
+type SupportedChain = "0xaa36a7" | "0x2105" | "0x64";
 
 interface HeartBitCoreOptions {
 	chain: SupportedChain;
