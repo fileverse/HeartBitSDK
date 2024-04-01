@@ -30,46 +30,80 @@ The SDK utilizes `coreOption` to configure the network for user interactions.
 
 ```javascript
 const coreSDK = new HeartBitCore({
-	chain: "0xaa36a7",
+  chain: "0xaa36a7",
 });
 ```
 
-### Example Usage
+### Example Usage - mintHeartBit (Signed Mint)
 
 This minimal example demonstrates how to use `HeartBitCore` for minting and querying data.
 
 ```javascript
 async function main() {
-	const message = "Hello World!";
-	const signature = "0x...signed message";
-	const startTime = 1706898250;
-	const endTime = 1706898251;
-	const hash = "Hello World"; // This is an identifier for the token, if this hash changes you mint a new token in that case
+  const message = "Hello World!";
+  const signature = "0x...signed message";
+  const startTime = 1706898250;
+  const endTime = 1706898251;
+  const hash = "Hello World"; // This is an identifier for the token, if this hash changes you mint a new token in that case
 
-	// Mint HeartBit
+  // Mint HeartBit
 
-	await coreSDK.mintHeartBit({
-		message,
-		signature,
-		startTime,
-		endTime,
-		hash,
-	});
+  await coreSDK.mintHeartBit({
+    message,
+    signature,
+    startTime,
+    endTime,
+    hash,
+  });
 
-	// Get TotalSupply for a hash
+  // Get TotalSupply for a hash
 
-	const totalSupply = await coreSDK.getTotalHeartBitCountByHash({ hash });
+  const totalSupply = await coreSDK.getTotalHeartBitCountByHash({ hash });
 
-	// Get Total Mints By User
-	const address = "0x...ethaddress";
-	const mintsByUser = await coreSDK.getHeartBitByUser({
-		hash,
-		address,
-	});
+  // Get Total Mints By User
+  const address = "0x...ethaddress";
+  const mintsByUser = await coreSDK.getHeartBitByUser({
+    hash,
+    address,
+  });
 }
 ```
 
 [Here](https://codesandbox.io/p/devbox/heartbit-core-sdk-example-37h7hw) is a link to a working example using `HeartBitCore`.
+
+### Example Usage - unSignedMintHeartBit (Unsigned Mint)
+
+This minimal example demonstrates how to use `HeartBitCore` for minting heartbit without signature.
+
+```javascript
+async function main() {
+  const startTime = 1706898250;
+  const endTime = 1706898251;
+  const hash = "ipfs://..."; // This is an identifier for the token, if this hash changes you mint a new token in that case
+  const apiKey = "hello";
+  const address = "0x...ethaddress";
+
+  // Mint HeartBit
+
+  await coreSDK.unSignedMintHeartBit({
+    startTime,
+    endTime,
+    hash,
+    address,
+    apiKey,
+  });
+
+  // Get TotalSupply for a hash
+
+  const totalSupply = await coreSDK.getTotalHeartBitCountByHash({ hash });
+
+  // Get Total Mints By User
+  const mintsByUser = await coreSDK.getHeartBitByUser({
+    hash,
+    address,
+  });
+}
+```
 
 ### Interfaces
 
@@ -77,25 +111,33 @@ async function main() {
 type SupportedChain = "0xaa36a7" | "0x2105" | "0x64";
 
 interface HeartBitCoreOptions {
-	chain: SupportedChain;
-	rpcUrl?: string;
+  chain: SupportedChain;
+  rpcUrl?: string;
 }
 
 interface TotalHeartBitCountArgs {
-	hash: string; // keccak256 hash of a string
+  hash: string; // keccak256 hash of a string | ipfs url
 }
 
 interface HeartBitCountByUserArgs {
-	hash: string; // keccak256 hash of a string
-	address: string; // ethereum wallet address
+  hash: string; // keccak256 hash of a string | ipfs url
+  address: string; // ethereum wallet address
 }
 
 interface MintHeartBitArgs {
-	message: string;
-	signature: string;
-	startTime: number; // in seconds
-	endTime: number; // in seconds
-	hash: string; // keccak256 hash of a string
+  message: string;
+  signature: string;
+  startTime: number; // in seconds
+  endTime: number; // in seconds
+  hash: string; // keccak256 hash of a string | ipfs url
+}
+
+interface UnSignedMintArgs {
+  startTime: number;
+  endTime: number;
+  hash: string; // keccak256 hash of a string | ipfs url
+  address: string; // target wallet address to which heartbits should be minted
+  apiKey: string; // Api Key
 }
 ```
 

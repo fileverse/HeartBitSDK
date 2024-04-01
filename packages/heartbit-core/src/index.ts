@@ -5,6 +5,7 @@ import type {
   MintHeartBitArgs,
   SupportedChain,
   HeartBitCountByUserArgs,
+  UnSignedMintArgs,
 } from "./types";
 
 import {
@@ -16,7 +17,7 @@ import { getMinterContract, getHashedString } from "./utils";
 
 export class HeartBitCore {
   chain: SupportedChain;
-  #backendApi: string;
+  #relayerUrl: string;
   #contract: Contract;
   #rpcProvider: JsonRpcProvider;
 
@@ -26,7 +27,7 @@ export class HeartBitCore {
     if (!chain) throw new Error("Chain is required");
 
     this.chain = chain;
-    this.#backendApi = HEART_BIT_CONFIG[chain].backendApi;
+    this.#relayerUrl = HEART_BIT_CONFIG[chain].relayerUrl;
     this.#rpcProvider = new JRPCProvider(
       rpcUrl || HEART_BIT_CONFIG[chain].publicRPCUrl
     );
@@ -34,13 +35,30 @@ export class HeartBitCore {
   }
 
   async mintHeartBit(opts: MintHeartBitArgs) {
-    const response = await fetch(this.#backendApi, {
+    const response = await fetch(`${this.#relayerUrl}/signed-mint`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         ...opts,
+      }),
+    });
+
+    const data = await response.json();
+    return data;
+  }
+
+  async unSignedMintHeartBit(opts: UnSignedMintArgs) {
+    const { apiKey, ...restArgs } = opts;
+    const response = await fetch(`${this.#relayerUrl}/address-mint`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey || "",
+      },
+      body: JSON.stringify({
+        ...restArgs,
       }),
     });
 
@@ -81,4 +99,5 @@ export {
   type HeartBitCountByUserArgs,
   type MintHeartBitArgs,
   type TotalHeartBitCountArgs,
+  type UnSignedMintArgs,
 };

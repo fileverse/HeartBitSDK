@@ -2,7 +2,7 @@ export type SupportedChain = "0xaa36a7" | "0x2105" | "0x64";
 
 export type ChainConfig = {
   chainId: number;
-  backendApi: string;
+  relayerUrl: string;
   publicRPCUrl: string;
   contractAddress: string;
 };
@@ -17,6 +17,14 @@ export interface MintHeartBitArgs {
   startTime: number;
   endTime: number;
   hash: string;
+}
+
+export interface UnSignedMintArgs {
+  startTime: number;
+  endTime: number;
+  hash: string;
+  address: string;
+  apiKey: string;
 }
 
 export interface TotalHeartBitCountArgs {
