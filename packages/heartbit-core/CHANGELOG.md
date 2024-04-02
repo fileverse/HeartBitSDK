@@ -1,5 +1,11 @@
 # @fileverse/heartbit-core
 
+## 2.2.0
+
+### Minor Changes
+
+- f69bd74: Bug Fix - Fixes Relayer URL for signed mints
+
 ## 2.1.0
 
 ### Minor Changes
