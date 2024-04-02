@@ -32,7 +32,7 @@ importers:
   packages/heartbit-react:
     dependencies:
       '@fileverse/heartbit-core':
-        specifier: ^1.0.0
+        specifier: ^2.0.0
         version: link:../heartbit-core
       classnames:
         specifier: ^2.5.1
