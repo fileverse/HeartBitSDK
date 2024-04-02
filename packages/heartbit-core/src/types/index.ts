@@ -23,7 +23,7 @@ export interface UnSignedMintArgs {
   startTime: number;
   endTime: number;
   hash: string;
-  address: string;
+  account: string;
   apiKey: string;
 }
 
