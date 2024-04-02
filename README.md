@@ -14,7 +14,7 @@ With just a click on a heart, up to 6 seconds, users can give HeartBits to their
 
 ### Supported Networks
 
-We currently support [Base](https://chainlist.org/chain/8453) and [Sepolia](https://chainlist.org/chain/58008), more coming soon!
+We currently support [Gnosis](https://chainlist.org/chain/100), [Base](https://chainlist.org/chain/8453) and [Sepolia](https://chainlist.org/chain/58008), more coming soon!
 
 ## Components
 
