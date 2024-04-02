@@ -38,6 +38,13 @@ This is the foundation of the HeartBit functionality. It exposes the APIs that a
 - [HeartBit Core](https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core)
 - [@fileverse/heartbit-core](https://www.npmjs.com/package/@fileverse/heartbit-core)
 
+### HeartBit Backend
+
+Relayer Backend for the HeartBitSDK.
+
+#### Relevant Link
+- [HeartBit Backend](https://github.com/fileverse/heartbit-backend)
+
 
 ## Contributing
 
