@@ -35,7 +35,7 @@ export class HeartBitCore {
   }
 
   async mintHeartBit(opts: MintHeartBitArgs) {
-    const response = await fetch(this.#relayerUrl, {
+    const response = await fetch(`${this.#relayerUrl}/signed-mint`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
