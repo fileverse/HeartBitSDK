@@ -44,7 +44,7 @@ async function main() {
   const signature = "0x...signed message";
   const startTime = 1706898250;
   const endTime = 1706898251;
-  const hash = "Hello World"; // This is an identifier for the token, if this hash changes you mint a new token in that case
+  const hash = "ipfs://somecid"; // unique identifier for token. eg ipfs://somecid in that case
 
   // Mint HeartBit
 
@@ -79,7 +79,7 @@ This minimal example demonstrates how to use `HeartBitCore` for minting heartbit
 async function main() {
   const startTime = 1706898250;
   const endTime = 1706898251;
-  const hash = "ipfs://..."; // This is an identifier for the token, if this hash changes you mint a new token in that case
+  const hash = "ipfs://cid"; // unique identifier for token. eg ipfs://somecid that case
   const apiKey = "hello";
   const address = "0x...ethaddress";
 
@@ -116,11 +116,11 @@ interface HeartBitCoreOptions {
 }
 
 interface TotalHeartBitCountArgs {
-  hash: string; // keccak256 hash of a string | ipfs url
+  hash: string; // unique identifier for token. eg ipfs://somecid
 }
 
 interface HeartBitCountByUserArgs {
-  hash: string; // keccak256 hash of a string | ipfs url
+  hash: string; // unique identifier for token. eg ipfs://somecid
   address: string; // ethereum wallet address
 }
 
@@ -129,13 +129,13 @@ interface MintHeartBitArgs {
   signature: string;
   startTime: number; // in seconds
   endTime: number; // in seconds
-  hash: string; // keccak256 hash of a string | ipfs url
+  hash: string; // unique identifier for token. eg ipfs://somecid
 }
 
 interface UnSignedMintArgs {
   startTime: number;
   endTime: number;
-  hash: string; // keccak256 hash of a string | ipfs url
+  hash: string; // unique identifier for token. eg ipfs://somecid
   address: string; // target wallet address to which heartbits should be minted
   apiKey: string; // Api Key
 }
