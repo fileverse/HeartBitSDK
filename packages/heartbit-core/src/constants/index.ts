@@ -3,20 +3,27 @@ import type { HeartBitConfig } from "../types/index.js";
 export const PUBLIC_RPC_URL_MAP = {
   sepolia: "https://rpc.ankr.com/eth_sepolia",
   base: "https://rpc.ankr.com/base",
+  gnosis: "https://rpc.ankr.com/gnosis",
 };
 
 export const HEART_BIT_CONFIG: HeartBitConfig = {
   "0xaa36a7": {
     chainId: 11155111,
-    backendApi: "https://sepolia-heartbit.fileverse.io/signed-mint",
+    relayerUrl: "https://sepolia-heartbit.fileverse.io",
     contractAddress: "0x47E3fd3331a89822A980DA7Fe51592bD6f900FE6",
     publicRPCUrl: PUBLIC_RPC_URL_MAP.sepolia,
   },
   "0x2105": {
     chainId: 8453,
-    backendApi: "https://base-heartbit.fileverse.io/signed-mint",
+    relayerUrl: "https://base-heartbit.fileverse.io",
     contractAddress: "0x5290B2e25c98015cE80b43C5c5CfBd01aA372E04",
     publicRPCUrl: PUBLIC_RPC_URL_MAP.base,
+  },
+  "0x64": {
+    chainId: 100,
+    relayerUrl: "http://gnosis-heartbit.fileverse.io",
+    contractAddress: "0xD9De9EdE4EFB6088a257C6AdB21619dE656C0863",
+    publicRPCUrl: PUBLIC_RPC_URL_MAP.gnosis,
   },
 };
 

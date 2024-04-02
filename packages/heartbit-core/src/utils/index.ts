@@ -13,7 +13,3 @@ export const getMinterContract = (
 
   return new Contract(contractAddress, CONTRACT_ABI, rpcProvider);
 };
-
-export const sleep = (ms = 1000): Promise<void> => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
