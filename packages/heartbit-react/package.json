@@ -46,7 +46,7 @@
     "vite-plugin-node-polyfills": "^0.19.0"
   },
   "dependencies": {
-    "@fileverse/heartbit-core": "^2.0.0",
+    "@fileverse/heartbit-core": "^2.2.0",
     "classnames": "^2.5.1"
   }
 }
