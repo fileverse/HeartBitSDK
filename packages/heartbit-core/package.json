@@ -3,18 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "./dist/esm/index.ts",
-  "types": "./dist/types/index.d.ts",
-  "typings": "./dist/types/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "default": "./dist/esm/index.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "scripts": {
-    "build": "pnpm run clean && pnpm run build:esm+types",
-    "build:esm+types": "tsc --project tsconfig.build.json --outDir ./dist/esm --declaration --declarationMap --declarationDir ./dist/types",
+    "build": "pnpm run clean && tsup",
     "clean": "rm -rf dist",
     "test:build": "publint --strict",
     "typecheck": "tsc --noEmit"
@@ -27,5 +26,8 @@
   "license": "ISC",
   "dependencies": {
     "ethers": "^6.10.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2"
   }
 }
