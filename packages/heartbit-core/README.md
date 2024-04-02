@@ -89,7 +89,7 @@ async function main() {
     startTime,
     endTime,
     hash,
-    address,
+    account: address,
     apiKey,
   });
 
@@ -136,7 +136,7 @@ interface UnSignedMintArgs {
   startTime: number;
   endTime: number;
   hash: string; // unique identifier for token. eg ipfs://somecid
-  address: string; // target wallet address to which heartbits should be minted
+  account: string; // target wallet address to which heartbits should be minted
   apiKey: string; // Api Key
 }
 ```
