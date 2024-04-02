@@ -1,5 +1,16 @@
 # @fileverse/heartbit-react
 
+## 2.0.0
+
+### Major Changes
+
+- 9108878: Adds support for Gnosis chain
+
+### Patch Changes
+
+- Updated dependencies [9108878]
+  - @fileverse/heartbit-core@2.0.0
+
 ## 1.2.0
 
 ### Minor Changes
