@@ -1,5 +1,16 @@
 # @fileverse/heartbit-react
 
+## 2.2.0
+
+### Minor Changes
+
+- fa270e2: Update README hash def
+
+### Patch Changes
+
+- Updated dependencies [fa270e2]
+  - @fileverse/heartbit-core@2.3.0
+
 ## 2.1.0
 
 ### Minor Changes
