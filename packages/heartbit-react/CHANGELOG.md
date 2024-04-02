@@ -1,5 +1,11 @@
 # @fileverse/heartbit-react
 
+## 2.1.0
+
+### Minor Changes
+
+- 3398bd1: Upgrades core package version to latest
+
 ## 2.0.0
 
 ### Major Changes
