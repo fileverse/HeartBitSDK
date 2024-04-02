@@ -28,7 +28,7 @@ import { HeartBit } from "@fileverse/heartbit-react";
 
 ### Integrate HeartBit Functionality
 
-First of all, you want to set up your wallet providers. For this example, we will be using the `BrowserProvider` from `ethers` as our provider. We will create a React component that will render `HeartBit`, and we are going to configure the network by passing the `coreOption` as props to it. It requires the `getSignatureArgsHook` as props as well, which it calls internally to get the `message`, `signature`, and optionally an `onMintCallback`, a function that will be called after mint is completed. We would also define `hash` which is a keccak256 hash that will be used for generating the tokenId on the smart contract, and we will use `SIWE` for generating the `message` and `signature`. The code below should do the trick:
+First of all, you want to set up your wallet providers. For this example, we will be using the `BrowserProvider` from `ethers` as our provider. We will create a React component that will render `HeartBit`, and we are going to configure the network by passing the `coreOption` as props to it. It requires the `getSignatureArgsHook` as props as well, which it calls internally to get the `message`, `signature`, and optionally an `onMintCallback`, a function that will be called after mint is completed. We would also define `hash` that will be used for generating the tokenId on the smart contract generally use `ipfs hash` here for `eg: ipfs://cid`, and we will use `SIWE` for generating the `message` and `signature`. The code below should do the trick:
 
 ```javascript
 const MyApp = () => {
@@ -61,7 +61,7 @@ const MyApp = () => {
     };
   };
 
- const hash = keccak256(toUtf8Bytes("window.location.href")); // This is an identifier for the token, if this hash changes you mint a new token in that case
+ const hash = "ipfs//cid"; // This is an identifier for the token, if this hash changes you mint a new token in that case
 
   return <HeartBit
           coreOptions={coreOptions}
@@ -99,7 +99,7 @@ const CustomHearBit = () => {
      const [startTime, setStartTime] = useState<number | null>(null) // should be in seconds
 
      const address = '0x...someaddress'
-     const hash = '0x....somehash' // This is an identifier for the token, if this hash changes you mint a new token in that case
+     const hash = 'ipfs://cid' // This is an identifier for the token, if this hash changes you mint a new token eg: ipfs://cid
      useEffect(() => {
         const fetchBalances = async () => {
             const totalMintsByHash = await getTotalHeartBitByHash({ hash }); // Total Supply for a hash
@@ -119,7 +119,7 @@ const CustomHearBit = () => {
          await mintHeartBit({
             startTime,
             endTime,
-            hash, // This is an identifier for the token, if this hash changes you mint a new token in that case
+            hash, // This is an identifier for the token, if this hash changes you mint a new token. eg: ipfs://cid
             message, // raw message that was signed
             signature, // signed message
          })
@@ -128,10 +128,11 @@ const CustomHearBit = () => {
      return <button onMouseUp={onMouseUp} onMouseDown={onMouseDown}>Hello World</button>
 }
 ```
+
 [Here](https://codesandbox.io/p/devbox/custom-heartbit-example-p6f7gr) is a working example using the `HeartBitProvider` and `useHeartBit`.
 
-
 ### Interface
+
 ```javascript
 interface SignatureArgs {
   message: string;
@@ -142,12 +143,11 @@ interface HeartBitProps
   extends Omit<HeartBitUIProps, "isDisabled" | "startFillPos"> {
   coreOptions: HeartBitCoreOptions;
   getSignatureArgsHook: () => Promise<SignatureArgs>; // this is a required hook, this allows to call sign message operation on the user wallet, must return SignatureArgs
-  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token. eg: ipfs://cid
   address?: string; // user wallet address
   showTotalMintsByHash?: boolean; // Default to false, if true will show total mints for a hash to the right of component
   showTotalMintsByUser?: boolean; // Defaults to false, if true will show total mints by a user on a hash to right of the component
 }
-
 
 type SupportedChain = "0xaa36a7" | "0x2105" | "0x64";
 interface HeartBitCoreOptions {
@@ -159,10 +159,10 @@ interface HeartBitProviderProps {
   coreOptions: HeartBitCoreOptions;
 }
 interface TotalHeartBitCountArgs {
-  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token. eg: ipfs://cid
 }
 interface HeartBitCountByUserArgs {
-  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token. eg: ipfs://cid
   address: string; // ethereum wallet address
 }
 interface MintHeartBitArgs {
@@ -170,7 +170,7 @@ interface MintHeartBitArgs {
   signature: string;
   startTime: number; // in seconds
   endTime: number; // in seconds
-  hash: string; // This is an identifier for the token, if this hash changes you mint a new token in that case
+  hash: string; // This is an identifier for the token, if this hash changes you mint a new token. eg: ipfs://cid
 }
 interface IHeartBitContext {
   getTotalHeartMintsByUser: (opts: HeartBitCountByUserArgs) => Promise<number>;

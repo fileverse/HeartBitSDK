@@ -44,7 +44,7 @@ async function main() {
   const signature = "0x...signed message";
   const startTime = 1706898250;
   const endTime = 1706898251;
-  const hash = "ipfs://somecid"; // unique identifier for token. eg ipfs://somecid in that case
+  const hash = "ipfs://somecid"; // unique identifier for token. eg ipfs://somecid
 
   // Mint HeartBit
 
@@ -79,7 +79,7 @@ This minimal example demonstrates how to use `HeartBitCore` for minting heartbit
 async function main() {
   const startTime = 1706898250;
   const endTime = 1706898251;
-  const hash = "ipfs://cid"; // unique identifier for token. eg ipfs://somecid that case
+  const hash = "ipfs://cid"; // unique identifier for token. eg ipfs://somecid
   const apiKey = "hello";
   const address = "0x...ethaddress";
 
