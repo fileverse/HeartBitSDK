@@ -33,7 +33,7 @@ export interface TotalHeartBitCountArgs {
 
 export interface HeartBitCountByUserArgs {
   hash: string;
-  address: string;
+  account: string;
 }
 
 export interface HeartBitCoreOptions {
