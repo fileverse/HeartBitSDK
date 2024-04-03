@@ -1,5 +1,11 @@
 # @fileverse/heartbit-react
 
+## 2.3.0
+
+### Minor Changes
+
+- 3727bbc: Updates version for core in the react package
+
 ## 2.2.0
 
 ### Minor Changes
