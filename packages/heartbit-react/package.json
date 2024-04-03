@@ -8,7 +8,13 @@
   "files": [
     "dist"
   ],
-  "keywords": ["ethereum", "erc-4337", "eip-4337", "Safe SDK API", "React"],
+  "keywords": [
+    "ethereum",
+    "erc-4337",
+    "eip-4337",
+    "Safe SDK API",
+    "React"
+  ],
   "repository": "https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-react",
   "homepage": "https://portal.fileverse.io/#/0x3d3dcEd1cb7676cbd90C4C4339D50AD52Bac37Fa/file/4?chainId=100",
   "exports": {
@@ -49,7 +55,7 @@
     "vite-plugin-node-polyfills": "^0.19.0"
   },
   "dependencies": {
-    "@fileverse/heartbit-core": "^2.3.0",
+    "@fileverse/heartbit-core": "^2.4.0",
     "classnames": "^2.5.1"
   }
 }
