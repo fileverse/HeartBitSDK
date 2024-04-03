@@ -8,6 +8,9 @@
   "files": [
     "dist"
   ],
+  "keywords": ["ethereum", "erc-4337", "eip-4337", "Safe SDK API", "React"],
+  "repository": "https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-react",
+  "homepage": "https://portal.fileverse.io/#/0x3d3dcEd1cb7676cbd90C4C4339D50AD52Bac37Fa/file/4?chainId=100",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
