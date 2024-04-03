@@ -98,12 +98,12 @@ const CustomHearBit = () => {
      const { mintHeartBit, getTotalHeartMintsByUser, getTotalHeartBitByHash } = useHeartBit()
      const [startTime, setStartTime] = useState<number | null>(null) // should be in seconds
 
-     const address = '0x...someaddress'
+     const account = '0x...someaddress'
      const hash = 'ipfs://cid' // This is an identifier for the token, if this hash changes you mint a new token eg: ipfs://cid
      useEffect(() => {
         const fetchBalances = async () => {
             const totalMintsByHash = await getTotalHeartBitByHash({ hash }); // Total Supply for a hash
-            const totalMintsByUser = await getTotalHeartMintsByUser({ address, hash }); // Total mints for a user by hash
+            const totalMintsByUser = await getTotalHeartMintsByUser({ account, hash }); // Total mints for a user by hash
 
             console.log({ totalMintsByHash, totalMintsByUser})
         }
@@ -144,7 +144,7 @@ interface HeartBitProps
   coreOptions: HeartBitCoreOptions;
   getSignatureArgsHook: () => Promise<SignatureArgs>; // this is a required hook, this allows to call sign message operation on the user wallet, must return SignatureArgs
   hash: string; // This is an identifier for the token, if this hash changes you mint a new token. eg: ipfs://cid
-  address?: string; // user wallet address
+  account?: string; // user wallet address
   showTotalMintsByHash?: boolean; // Default to false, if true will show total mints for a hash to the right of component
   showTotalMintsByUser?: boolean; // Defaults to false, if true will show total mints by a user on a hash to right of the component
 }
@@ -163,7 +163,7 @@ interface TotalHeartBitCountArgs {
 }
 interface HeartBitCountByUserArgs {
   hash: string; // This is an identifier for the token, if this hash changes you mint a new token. eg: ipfs://cid
-  address: string; // ethereum wallet address
+  account: string; // ethereum wallet address
 }
 interface MintHeartBitArgs {
   message: string;
