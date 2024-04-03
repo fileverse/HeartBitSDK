@@ -50,6 +50,9 @@ Relayer Backend for the HeartBitSDK.
 #### Relevant Link
 - [HeartBit Backend](https://github.com/fileverse/heartbit-backend)
 
+## Heartbit x Frames
+
+Example Repo: [Heartbit with Nextjs](https://github.com/fileverse/heartbit-frames-nextjs)
 
 ## Contributing
 
