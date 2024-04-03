@@ -4,13 +4,18 @@
 
 ### Overview
 
-HeartBit is a free open-source SDK to deploy time-based ‘onchain likes’ to any dApp and website. The SDK is designed for easy integration and enables a new metric for user interaction, broadening the scope of how appreciation and engagement are quantified onchain. HeartBit is currently compatible with Base and will soon be available across most EVM-based chains.
+[Fileverse](https://twitter.com/fileverse) is an onchain collaboration suite serving as an alternative to Notion and Google Workspace. It goes without saying that Fileverse cannot depend on traditional ‘like’ buttons that are just an ephemeral entry on a centralized database.
+
+Introducing HeartBits by Fileverse: provable, time-based onchain "Likes" that people generate by simply engaging with your app, website, onchain media, Frame or OpenAction. The HeartBit SDK enables novel onchain user interactions directly on your app and generates granular user analytics trackable on Dune. This open SDK also allows you to easily deploy Frames (Farcaster) and Open Actions (Lens) with gasless transactions.
+
+Leveraging: Safe Protocol, IPFS, Pimlico, ERC4337, ERC1155, Gnosis Chain, Base, Frog by Paradigm, Frames.js, Farcaster, Lens.
 
 ### Why HeartBit?
 
-The SDK introduces a new way to engage onchain, transforming how appreciation is expressed. Unlike traditional web2 likes which are ephemeral and hold no tangible value, HeartBit lets users share their time - a sincere, measurable token of appreciation for content they love. This onchain metric not only adds value but also depth to user interactions: it’s a meaningful way to show onchain love.
+The HeartBit SDK introduces a new way to engage onchain that transforms how appreciation is expressed online. Unlike traditional web2 ‘likes’ which are ephemeral and hold no tangible value, HeartBit lets users directly share/offer their time–a sincere, measurable token of appreciation for content they love. This onchain metric not only adds value but also depth to user interactions: it’s a meaningful way to show onchain love.
 
-With just a click on a heart, up to 6 seconds, users can give HeartBits to their favorite content. Each second a user stays clicked up mints ERC1155 tokens. Now every dApp; NFT; digital garden; video; article; web page etc. can have granular onchain analytics. Deepen your users’ analytics from Daily/Monthly Active Users to Seconds Active Users.
+With just a click on a HeartBit, up to 6 seconds, users can give HeartBits to their favorite content, author, peer, anon. Each second a user stays clicked on a HeartBit mints ERC1155 tokens. Now every dApp; NFT; digital garden; video; article; web page, etc. can have granular onchain analytics. Deepen your users’ analytics from Daily/Monthly Active Users to Seconds Active Users
+
 
 ### Supported Networks
 
