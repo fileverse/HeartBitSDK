@@ -12,7 +12,7 @@ export interface HeartBitProps
   coreOptions: HeartBitCoreOptions;
   getSignatureArgsHook: () => Promise<SignatureArgs>;
   hash: string;
-  address?: string;
+  account?: string;
   showTotalMintsByHash?: boolean;
   showTotalMintsByUser?: boolean;
 }

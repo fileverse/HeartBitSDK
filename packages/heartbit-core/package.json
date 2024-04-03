@@ -1,6 +1,6 @@
 {
   "name": "@fileverse/heartbit-core",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "",
   "type": "module",
   "main": "./dist/index.js",
@@ -21,7 +21,14 @@
   "files": [
     "dist"
   ],
-  "keywords": [],
+  "keywords": [
+    "ethereum",
+    "erc-4337",
+    "eip-4337",
+    "Safe SDK API"
+  ],
+  "repository": "https://github.com/fileverse/HeartBitSDK/tree/main/packages/heartbit-core",
+  "homepage": "https://portal.fileverse.io/#/0x3d3dcEd1cb7676cbd90C4C4339D50AD52Bac37Fa/file/4?chainId=100",
   "author": "",
   "license": "ISC",
   "dependencies": {

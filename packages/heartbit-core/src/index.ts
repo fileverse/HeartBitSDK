@@ -84,10 +84,10 @@ export class HeartBitCore {
   }
 
   async getHeartBitByUser(opts: HeartBitCountByUserArgs): Promise<number> {
-    const { address, hash } = opts;
+    const { account, hash } = opts;
     const tokenId = await this.getHeartbitHashTokenMap(hash);
 
-    const balance = await this.#contract.balanceOf?.(address, tokenId);
+    const balance = await this.#contract.balanceOf?.(account, tokenId);
     return parseInt(balance);
   }
 }

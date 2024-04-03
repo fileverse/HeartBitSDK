@@ -41,7 +41,7 @@ const HeartBitWithProvider = (props: HeartBitProps) => {
   const {
     getSignatureArgsHook,
     hash,
-    address,
+    account,
     showTotalMintsByHash = false,
     showTotalMintsByUser = false,
   } = props;
@@ -63,9 +63,9 @@ const HeartBitWithProvider = (props: HeartBitProps) => {
         const totalMintsByHash = await getTotalHeartBitByHash({ hash });
         balances.totalMintsByHash = totalMintsByHash;
       }
-      if (showTotalMintsByUser && address) {
+      if (showTotalMintsByUser && account) {
         const totalMintsByUser = await getTotalHeartMintsByUser({
-          address,
+          account,
           hash,
         });
         balances.totalMintsByUser = totalMintsByUser;
@@ -77,7 +77,7 @@ const HeartBitWithProvider = (props: HeartBitProps) => {
       setLoading(false);
     }
   }, [
-    address,
+    account,
     getTotalHeartBitByHash,
     getTotalHeartMintsByUser,
     hash,
