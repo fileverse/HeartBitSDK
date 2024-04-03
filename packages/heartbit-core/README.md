@@ -61,10 +61,10 @@ async function main() {
   const totalSupply = await coreSDK.getTotalHeartBitCountByHash({ hash });
 
   // Get Total Mints By User
-  const address = "0x...ethaddress";
+  const account = "0x...ethaddress";
   const mintsByUser = await coreSDK.getHeartBitByUser({
     hash,
-    address,
+    account,
   });
 }
 ```
@@ -81,7 +81,7 @@ async function main() {
   const endTime = 1706898251;
   const hash = "ipfs://cid"; // unique identifier for token. eg ipfs://somecid
   const apiKey = "hello";
-  const address = "0x...ethaddress";
+  const account = "0x...ethaddress";
 
   // Mint HeartBit
 
@@ -89,7 +89,7 @@ async function main() {
     startTime,
     endTime,
     hash,
-    account: address,
+    account,
     apiKey,
   });
 
@@ -100,7 +100,7 @@ async function main() {
   // Get Total Mints By User
   const mintsByUser = await coreSDK.getHeartBitByUser({
     hash,
-    address,
+    account,
   });
 }
 ```
@@ -121,7 +121,7 @@ interface TotalHeartBitCountArgs {
 
 interface HeartBitCountByUserArgs {
   hash: string; // unique identifier for token. eg ipfs://somecid
-  address: string; // ethereum wallet address
+  account: string; // ethereum wallet address
 }
 
 interface MintHeartBitArgs {
