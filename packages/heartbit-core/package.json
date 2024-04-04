@@ -17,7 +17,7 @@
     "clean": "rm -rf dist",
     "test:build": "publint --strict",
     "typecheck": "tsc --noEmit",
-    "test": "jest"
+    "test": "jest --coverage --coverageReporters=text"
   },
   "files": [
     "dist"
