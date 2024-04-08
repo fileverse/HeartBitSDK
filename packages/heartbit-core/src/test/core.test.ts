@@ -4,7 +4,7 @@ import { describe, expect, jest, it } from '@jest/globals';
 import { HEART_BIT_CONFIG } from '../constants';
 import { mintData, unsignedMintData } from './mockData';
 
-jest.mock('./utils', () => ({
+jest.mock('../utils', () => ({
     getMinterContract: jest.fn().mockImplementation(() => {
         return {
           totalSupply: jest.fn().mockResolvedValue('10' as never),
