@@ -14,7 +14,8 @@
     "publish:core": "pnpm --filter heartbit-core publish",
     "prepublish": "pnpm run build",
     "publish": "pnpm run prepublish && pnpm run publish:core && pnpm run publish:react",
-    "test:react": "pnpm --filter heartbit-react test"
+    "test:react": "pnpm --filter heartbit-react test",
+    "test:core": "pnpm --filter heartbit-core test"
   },
   "keywords": [
     "heartbitsdk",
