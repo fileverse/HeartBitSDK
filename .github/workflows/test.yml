@@ -52,12 +52,11 @@ jobs:
 
       - name: 🧩 Install Dependencies
         run: pnpm install
-        working-directory: ./packages/heartbit-core
 
       - name: 🏗️ Build
-        run: pnpm run build
-        working-directory: ./packages/heartbit-core
+        run: pnpm build
 
-      - name: 🧪 Run Tests
-        run: pnpm test
-        working-directory: ./packages/heartbit-core
+      - name: 🧪 Run core test
+        run: pnpm test:core
+      - name: 🧪 Run react test
+        run: pnpm test:react
